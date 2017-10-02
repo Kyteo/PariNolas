@@ -76,7 +76,7 @@ and open the template in the editor.
              Header("Location: Type.php");
              
         }else if (isset($_POST['submit2'])) {
-            Header("Location: Ajouter.php");
+            Header("Location: ajouter.php");
                
         } 
         ?>
