@@ -25,6 +25,9 @@ and open the template in the editor.
     </head>
    
     <body>
+        <form action="ajouter.php" method="post">
+            ID : <input type="text" name="ID"/> 
+           <br> 
         <select name="Sexe" id="SexeID">
             <option name="Sexe" value="0" selected="selected">Choississez un sexe</option> 
             <option name="Sexe" value="H">H</option>
@@ -32,43 +35,44 @@ and open the template in the editor.
         </select>
         <br>
         <select name="Marque" id="MarqueID">
-            <option value="0" selected="selected">Choississez une marque</option> 
-            <option value="Guess">Guess</option>
-            <option value="Adidas">Adidas</option>  
-            <option value="Nike">Nike</option>
-            <option value="Levis">Levi's</option>  
-            <option value="Obey">Obey</option> 
-            <option value="Puma">Puma</option>  
-            <option value="Reebok">Reebok</option> 
+            <option name="Marque" value="0" selected="selected">Choississez une marque</option> 
+            <option name="Marque" value="Guess">Guess</option>
+            <option name="Marque" value="Adidas">Adidas</option>  
+            <option name="Marque" value="Nike">Nike</option>
+            <option name="Marque" value="Levis">Levi's</option>  
+            <option name="Marque" value="Obey">Obey</option> 
+            <option name="Marque" value="Puma">Puma</option>  
+            <option name="Marque" value="Reebok">Reebok</option> 
         </select>
         <br>
         <select name="Grandeur" id="GrandeurID">
-            <option value="0" selected="selected">Choississez une grandeur</option> 
-            <option value="S">S</option>
-            <option value="M">M</option>  
-            <option value="L">L</option>  
+            <option name="Grandeur" value="0" selected="selected">Choississez une grandeur</option> 
+            <option name="Grandeur" value="S">S</option>
+            <option name="Grandeur" value="M">M</option>  
+            <option name="Grandeur" value="L">L</option>  
         </select>
         <br>
         <select name="Couleur" id="CouleurID">
-            <option value="0" selected="selected">Choississez une couleur</option> 
-            <option value="Rouge">Rouge</option>
-            <option value="Bleu">Bleu</option>
-            <option value="Vert">Vert</option>
-            <option value="Noir">Noir</option>
-            <option value="Blanc">Blanc</option>
+            <option name="Couleur" value="0" selected="selected">Choississez une couleur</option> 
+            <option name="Couleur" value="Rouge">Rouge</option>
+            <option name="Couleur" value="Bleu">Bleu</option>
+            <option name="Couleur" value="Vert">Vert</option>
+            <option name="Couleur" value="Noir">Noir</option>
+            <option name="Couleur" value="Blanc">Blanc</option>
         </select>
         <br>
         <select name="Saison" id="SaisonID">
-            <option value="0" selected="selected">Choississez une saison</option> 
-            <option value="Aut">Aut</option>
-            <option value="Hiv">Hiv</option> 
-            <option value="Pri">Pri</option>
-            <option value="Ete">Ete</option>  
+            <option name="Saison" value="0" selected="selected">Choississez une saison</option> 
+            <option name="Saison" value="Aut">Aut</option>
+            <option name="Saison" value="Hiv">Hiv</option> 
+            <option name="Saison" value="Pri">Pri</option>
+            <option name="Saison" value="Ete">Ete</option>  
         </select>
         <br>
+        Prix : <input type="text" name="Prix"/> 
         <br>
-        <form action="" method="post">
-        <input type="submit" name="submit1" value="Retour"/>    
+        <br>
+                 
         <input type="submit" name="submit2" value="Suivant"/>
         </form>
         <?php
