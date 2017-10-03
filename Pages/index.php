@@ -25,14 +25,14 @@ and open the template in the editor.
         if (isset($_POST['submit'])) {
             $selected_radio = $_POST['type'];
             if ($selected_radio == 'Ajouter'){
-                Header("Location: Type.php");
+                Header("Location: formulaire.php");
                 
             
             }else if ($selected_radio == 'Visionner'){
-                Header("Location: View.php");
+                Header("Location: type.php");
            
             }else if ($selected_radio == 'Supprimer'){
-                print $selected_radio;    
+                Header("Location: type.php");    
             
             }else if ($selected_radio == 'ContactezNous'){
                 print $selected_radio;

@@ -26,6 +26,14 @@ and open the template in the editor.
    
     <body>
         <form action="ajouter.php" method="post">
+         <select name="Type">
+            <option name="Type" value="0" selected="selected">Choississez un type</option> 
+            <option name="Type" value="chemises">chemises</option>
+            <option name="Type" value="pantalons">pantalons</option>
+            <option name="Type" value="pull-over">pull-over</option>
+            <option name="Type" value="t-shirts">t-shirts</option>
+        </select>
+            <br>
             ID : <input type="text" name="ID"/> 
            <br> 
         <select name="Sexe" id="SexeID">
