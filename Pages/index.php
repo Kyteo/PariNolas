@@ -32,7 +32,7 @@ and open the template in the editor.
                 Header("Location: type.php");
            
             }else if ($selected_radio == 'Supprimer'){
-                Header("Location: type.php");    
+                Header("Location: typeEffacer.php");    
             
             }else if ($selected_radio == 'ContactezNous'){
                 print $selected_radio;
