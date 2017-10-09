@@ -9,7 +9,8 @@ $connect = mysqli_connect($hostname, $username, $password, $databaseName);
 
 $Type = $_POST['Type'];
 $ID = $_POST['ID'];
-$sql = '';
+$colonne = $_POST['colonne'];
+$sql = "";
 
 $query = "show TABLES";
 $result = mysqli_query($connect, $query); // Get table names
@@ -34,9 +35,11 @@ while($row = mysqli_fetch_array($result)):
 endwhile;
 
 while($row1 = mysqli_fetch_array($result1)):  
-
-     
+ 
     if ($row1[0] == $ID):
+        if($colonne = $ID):
+            $sql = "UPDATE `t-shirts` SET 'ID' = ";
+        endif;
         if ($Type == "t-shirts"):
             $sql = "DELETE FROM `t-shirts` WHERE ID LIKE '$ID'";
    
@@ -60,13 +63,13 @@ endwhile;
 if(!$sql == ''){
     
     if(!mysqli_query($connect, $sql)){
-        echo 'Not Deleted';
+        echo 'Not Modified';
     }else{
-        echo 'Deleted';
+        echo 'Modified';
     }
 }else{    
-    echo 'Item not found, nothing was deleted';
+    echo 'Item not found, nothing was modified';
 }
 
-header("refresh:5; url= index.php");        
+header("refresh:10; url= index.php");        
 ?> 
