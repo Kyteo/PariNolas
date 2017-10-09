@@ -12,7 +12,7 @@ and open the template in the editor.
     </head>
     
     <body>
-        <form action="" method="post">
+        <form action="view.php" method="post">
           <select name="Type">
             <option name="Type" value="0" selected="selected">Choississez un type</option> 
             <option name="Type" value="chemises">chemises</option>
@@ -20,11 +20,15 @@ and open the template in the editor.
             <option name="Type" value="pull-over">pull-over</option>
             <option name="Type" value="t-shirts">t-shirts</option>
            </select>
-            <input type="submit" name="submit" value="Retour"/>
-            <input type="submit" name="submit1" value="Effacer"/>
             <input type="submit" name="submit2" value="Ajouter"/>
         </form>
- 
+        <br>
+        <br>
+        <form action="" method="post">
+          <input type="submit" name="submit" value="Retour"/>
+           <input type="submit" name="submit1" value="Effacer"/>  
+        </form>
+            
         <?PHP
         if (isset($_POST['submit'])) {
              Header("Location: index.php");
