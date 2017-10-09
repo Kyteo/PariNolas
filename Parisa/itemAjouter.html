@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Version administrateur: ajout d'item à l'inventaire</title>
+	<meta charset="UTF-8">
+</head>
+<body>
+	<h1><i>Inventaire PariNolas</i></h1><hr>
+	<p><u>Remplissez ce formulaire pour ajouter un item. Veuillez remplir tous les champs.</u></p>
+	
+	<form action="inventaire.php" method="post">
+		<label for="nom">Nom d'item : </label>
+		<input type="text" id="nom" name="nom"  maxlength="40" size="20"><br>
+		<label for="id">ID : </label>
+		<input type="text" id="id" name="id" maxlength="50" size="20"><br>
+		<label for="sexe">Sexe : </label>
+		<input type="radio" id="sexe" name="sexe" value="f" checked="checked" /> Femme
+		<input type="radio" id="sexe" name="sexe" value="h" /> Homme<br>
+		
+		<label for="type">Type : </label>
+		<select name="type" id="type">
+			<option value="hautsLong">Haut &agrave manches longues</option>
+			<option value="hautCourt">Haut &agrave manches courtes</option>
+			<option value="jeans">Jeans</option>
+			<option value="pantalons">Pantalons</option>
+			<option value="veste">Veste</option>
+			<option value="accessoire">Accessoire</option>
+		</select><br>
+		<label for="prix">Prix : </label>
+		<input type="text" id="prix" name="prix" maxlength="8" size="8"><br>
+		<label for="coul">Couleur : </label>
+		<select name="couleur" id="coul">
+			<option value="noir">Noir</option>
+			<option value="bleu">Bleu</option>
+			<option value="rouge">Rouge</option>
+			<option value="rose">Rose</option>
+			<option value="jaune">Jaune</option>
+			<option value="blanc">Blanc</option>
+			<option value="autre">Autre</option>			
+		</select><br>
+		<label for="size">Grandeur : </label>
+		<input type="radio" id="size" name="grandeur" value="p" checked="checked" /> Petit
+		<input type="radio" id="size" name="grandeur" value="m" /> Moyen
+		<input type="radio" id="size" name="grandeur" value="g" /> Grand<br>
+		
+		<label for="image">Image : </label>
+		<input type="file" name="filename" accept="image/gif, image/jpeg, image/png">
+		<br><br>
+	
+		<button type="reset">Vider</button>
+		<button type="submit">Ajouter item</button>
+	</form>
+
+</body>
+</html>
