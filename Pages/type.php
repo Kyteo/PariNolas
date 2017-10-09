@@ -19,6 +19,7 @@ and open the template in the editor.
             <option name="Type" value="pantalons">pantalons</option>
             <option name="Type" value="pull-over">pull-over</option>
             <option name="Type" value="t-shirts">t-shirts</option>
+            <option name="Type" value="sweater">sweater</option>
            </select>
             <input type="submit" name="submit" formaction="index.php" value="Retour"/>
             <input type="submit" name="submit1" value="Visionner"/>
