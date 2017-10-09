@@ -31,7 +31,7 @@ and open the template in the editor.
         </form>
             
         <?PHP
-        #test
+        
         if (isset($_POST['submit'])) {
              Header("Location: index.php");
              
