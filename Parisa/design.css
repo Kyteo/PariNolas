@@ -1,0 +1,64 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Oct 11, 2017, 12:37:42 AM
+    Author     : pshearzad
+*/
+
+body {
+	background-color: Black;
+	color: White;
+	text-align: center;
+}
+button {
+	text-align: left;
+}
+h1 {
+	background-image: url("/Applications/MAMP/htdocs/Site INM5001/pn-logo.png");
+	background-repeat: no-repeat;
+	font-family: Apple Chancery;
+	font-size: 250%;
+	color: MediumBlue;
+}
+h2 {
+	color: #FF6347;
+	font-family: Herculanum;
+}
+p,pre {
+	font-family: Ayuthaya;
+}
+pre {
+	text-align: right;
+	font-size: 10px;
+}
+ul {
+	background-color: #D4AF37;
+	opacity: 0.8;
+	font-family: Verdana;
+	font-weight: bold;
+	color: Black;
+	text-transform: uppercase;
+	min-width: 450px;
+	max-width: 500px;
+	padding: 5px;
+	margin: 10px auto 10px auto;
+}
+li>a {
+	font-family: Gurmukhi Sangam MN;
+	text-transform: lowercase;
+}
+form {
+	color: #DEB887;
+}
+label {
+	font-family: Century Gothic;
+}
+.page {
+	border: 1px solid #665544;
+	background-color: #D4AF37;
+	padding: inherit;
+	opacity: 0.95;
+}
