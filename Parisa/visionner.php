@@ -7,28 +7,48 @@ $databaseName = 'parinolas';
 
 $connect = mysqli_connect($hostname, $username, $password, $databaseName);
 
-$Type = $_POST['Type'];
+$Type = $_POST['type'];
 
 $query = "show TABLES";
 $result = mysqli_query($connect, $query); // Get table names
 
 while($row = mysqli_fetch_array($result)):    
-    if ($Type == "t-shirts"):
-       $query = "SELECT * FROM `t-shirts`"; 
+    if ($Type == "hc"):
+       $query = "SELECT * FROM `hauts à manches courtes`"; 
        $result1 = mysqli_query($connect, $query);
     endif;
-    if ($Type == "chemises"):
-       $query = "SELECT * FROM `chemises`"; 
+    if ($Type == "hl"):
+       $query = "SELECT * FROM `hauts à manches longues`"; 
        $result1 = mysqli_query($connect, $query);
     endif;
-    if ($Type == "pantalons"):
+    if ($Type == "sh"):
+       $query = "SELECT * FROM `shorts`"; 
+       $result1 = mysqli_query($connect, $query);
+    endif;
+    if ($Type == "pa"):
        $query = "SELECT * FROM `pantalons`"; 
        $result1 = mysqli_query($connect, $query);
     endif;
-    if ($Type == "pull-over"):
-       $query = "SELECT * FROM `pull-over`"; 
+    if ($Type == "ve"):
+       $query = "SELECT * FROM `vestes`"; 
        $result1 = mysqli_query($connect, $query);
     endif;
+    if ($Type == "fo"):
+       $query = "SELECT * FROM `foulards`"; 
+       $result1 = mysqli_query($connect, $query);
+    endif;
+    if ($Type == "ch"):
+       $query = "SELECT * FROM `chapeaux`"; 
+       $result1 = mysqli_query($connect, $query);
+    endif;
+    if ($Type == "ce"):
+       $query = "SELECT * FROM `ceintures`"; 
+       $result1 = mysqli_query($connect, $query);
+    endif;
+    if ($Type == "ga"):
+       $query = "SELECT * FROM `gants`"; 
+       $result1 = mysqli_query($connect, $query);
+    endif;   
 endwhile;?> 
 
     
@@ -42,20 +62,27 @@ and open the template in the editor.
 
 <html>
     <head>
-        <meta charset="UTF-8">
-        <title>PariNolas</title>
-        
+        <title>Version administrateur: inventaire</title>
+	<link href="design.css" type="text/css" rel="stylesheet" />
+	<meta charset="UTF-8">
     </head>
      <body>
+         <pre>
+		Bonjour, Administrateur! | <a href="adminDeconnecte.html">Se déconnecter</a>
+	</pre><hr>
+	<img src="/Applications/MAMP/htdocs/Site INM5001/pn-logo-petit.png" alt="PariNolas logo"><br><hr>
+	
+	<h2><u>Inventaire</u></h2><br>
+        <ul>
          <table>
-                <tr>  
-                    <td>ID</td>
+                 <tr>  
+                    <td>ID</td>     
+                    <td>Nom</td>
                     <td>Sexe</td>
-                    <td>Marque</td>
                     <td>Grandeur</td>
                     <td>Couleur</td>
-                    <td>Saison</td>
-                    <td>Prix</td>
+                    <td>Prix</td>  
+                    <td>Image</td>  
                 </tr>
         
                 <?php while($row1 = mysqli_fetch_array($result1)): ?>  
@@ -73,9 +100,10 @@ and open the template in the editor.
          <form action="" method="post">
          <input type="submit" name="submit" value="Retour"/>
          </form>
+         </ul>
          <?php        
           if (isset($_POST['submit'])) {
-             Header("Location: type.php");
+             Header("Location: inventaireVisionner.html");
           } 
          ?> 
     </body>

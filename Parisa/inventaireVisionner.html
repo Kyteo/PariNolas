@@ -14,22 +14,20 @@
 	
 	<h2><u>Visionnement de l'inventaire</u></h2><br>
 	
-	<form action="inventaire.php" method="post">
+	<form action="visionner.php" method="post">
 		<label for="type">Type : </label>
 		<select name="type" id="type">
-			<option value="tout">Tout</option>
-			<option value="hc">Hauts à manches courtes</option>
-			<option value="hl">Hauts à manches longues</option>
-			<option value="sh">Shorts</option>
-			<option value="pa">Pantalons</option>
-			<option value="ve">Vestes</option>
-			<option value="fo">Foulards</option>
-			<option value="ch">Chapeaux</option>
-			<option value="ce">Ceintures</option>	
-			<option value="ga">Gants</option>
+			<option name="type" value="hc">Hauts à manches courtes</option>
+			<option name="type" value="hl">Hauts à manches longues</option>
+			<option name="type" value="sh">Shorts</option>
+			<option name="type" value="pa">Pantalons</option>
+			<option name="type" value="ve">Vestes</option>
+			<option name="type" value="fo">Foulards</option>
+			<option name="type" value="ch">Chapeaux</option>
+			<option name="type" value="ce">Ceintures</option>	
+			<option name="type" value="ga">Gants</option>
 		</select><br><br>
 		<button type="submit">Voir inventaire</button>
 	</form>
-
 </body>
 </html>
