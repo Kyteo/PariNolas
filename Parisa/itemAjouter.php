@@ -22,7 +22,7 @@ $sql = "";
 
 while($row = mysqli_fetch_array($result)): 
     
-    if ($row[0] == $Type):
+   
         
         if ($Type == "hautCourt"):
             $sql = "INSERT INTO `hauts à manches courtes`(ID,Nom,Sexe,Grandeur,Couleur,Prix,Image) VALUES ('$ID','$Nom','$Sexe','$Grandeur','$Couleur','$Prix','$Image')";
@@ -60,14 +60,42 @@ while($row = mysqli_fetch_array($result)):
             $sql = "INSERT INTO `gants`(ID,Nom,Sexe,Grandeur,Couleur,Prix,Image) VALUES ('$ID','$Nom','$Sexe','$Grandeur','$Couleur','$Prix','$Image')";
 
         endif;
-    endif;
+ 
 endwhile;
 
-if(!mysqli_query($connect, $sql)){
-    echo 'Non ajouter!';
-}else{
-    echo 'Ajouter!';
-}
 
+?> 
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<html>
+    <head>
+        <title>Version administrateur: ajout d'item à l'inventaire</title>
+	<link href="design.css" type="text/css" rel="stylesheet" />
+	<meta charset="UTF-8">
+    </head>
+     <body>
+         <pre>
+		Bonjour, Administrateur! | <a href="adminDeconnecte.html">Se déconnecter</a>
+	</pre><hr>
+	<img src="pn-logo-petit.png" alt="PariNolas logo"><br><hr>
+	
+	<h2><u>
+            <?php if(!mysqli_query($connect, $sql)){
+                        echo 'Non ajouter!';
+                  }else{
+                        echo 'Ajouter!';
+                  }
+            ?> 
+        </u></h2><br>
+        
+    </body>
+</html>
+
+<?php       
 header("refresh:5; url= adminAccueil.html");        
 ?> 

@@ -70,7 +70,7 @@ and open the template in the editor.
          <pre>
 		Bonjour, Administrateur! | <a href="adminDeconnecte.html">Se déconnecter</a>
 	</pre><hr>
-	<img src="/Applications/MAMP/htdocs/Site INM5001/pn-logo-petit.png" alt="PariNolas logo"><br><hr>
+	<img src="pn-logo-petit.png" alt="PariNolas logo"><br><hr>
 	
 	<h2><u>Inventaire</u></h2><br>
         <ul>
@@ -103,7 +103,7 @@ and open the template in the editor.
          </ul>
          <?php        
           if (isset($_POST['submit'])) {
-             Header("Location: inventaireVisionner.html");
+             Header("Location: adminAccueil.html");
           } 
          ?> 
     </body>
