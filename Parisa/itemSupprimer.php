@@ -110,12 +110,12 @@ and open the template in the editor.
             <?php if(!$sql == ''){
     
                         if(!mysqli_query($connect, $sql)){
-                                echo 'Not Deleted';
+                                echo 'Non supprimer';
                         }else{
-                                echo 'Deleted';
+                                echo 'Supprimer';
                         }
                    }else{    
-                                echo 'Item not found, nothing was deleted';
+                                echo 'Usager non trouvé, rien de supprimer';
                    }
             ?> 
         </u></h2><br>
