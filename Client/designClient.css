@@ -1,0 +1,97 @@
+body {
+	background-image: url("/Client/images/'f9d266aa.png'.png");
+	color: #b8bbc1;
+}
+
+a {
+	text-decoration: none;
+}
+a:link {
+	color: #2041f9;
+}
+a:visited {
+	color: #2041f9;
+}
+a:hover {
+	color: #a5780e;
+}
+a:active {
+	color: white;
+}
+	
+
+div.entete {
+	float: none;
+}
+
+img {
+	margin: 2px 2px 2px 2px;
+}
+
+div.menu {
+	float: none;
+}
+
+div.gauche {
+	float: left;
+	width: 40%;
+	length: 10 cm;
+}
+
+div.droite {
+	float: right;
+	width: 60%;
+}
+
+
+
+pre.bonjour {
+	text-align: right;
+	font-family: Century Gothic;
+}
+
+pre.menu {
+	text-align: center;
+	font-family: Perpetua Titling MT;
+	font-size: 110%;
+}
+
+hr.menuHaut {
+	border-color: #a5780e;
+	width: 700px;
+	border-top: 1px dashed #a5780e;
+	border-bottom: 1px solid #a5780e;
+}
+hr.menuBas {
+	border-color: #a5780e;
+	width: 700px;
+	border-top: 1px dashed #a5780e;
+	border-bottom: 1px solid #a5780e;
+}
+
+div.accueil {
+	text-align: center;
+}
+
+div.menuHomme,div.menuFemme {
+	float: left;
+	width: 20%;
+	margin-left: 2em;
+}
+.menuHomme>a {
+	font-family: Papyrus;
+	font-size: 14px;
+	font-weight: normal;
+}
+.menuFemme>a {
+	font-family: Papyrus;
+	font-size: 14px;
+}
+
+#femme {
+	color: pink;
+}
+#homme {
+	color: #42f4f1;
+}
+
