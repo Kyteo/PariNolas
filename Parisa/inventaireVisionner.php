@@ -14,11 +14,11 @@ $result = mysqli_query($connect, $query); // Get table names
 
 while($row = mysqli_fetch_array($result)):    
     if ($Type == "hc"):
-       $query = "SELECT * FROM `hauts à manches courtes`"; 
+       $query = "SELECT * FROM `hautsCourt`"; 
        $result1 = mysqli_query($connect, $query);
     endif;
     if ($Type == "hl"):
-       $query = "SELECT * FROM `hauts à manches longues`"; 
+       $query = "SELECT * FROM `hautsLong`"; 
        $result1 = mysqli_query($connect, $query);
     endif;
     if ($Type == "sh"):
@@ -85,7 +85,8 @@ and open the template in the editor.
                     <td>Image</td>  
                 </tr>
         
-                <?php while($row1 = mysqli_fetch_array($result1)): ?>  
+                <?php while($row1 = mysqli_fetch_array($result1)): 
+                $photo = $row1['Image'];?> 
                 <tr>  
                     <td><?php echo $row1[0];?></td>
                     <td><?php echo $row1[1];?></td>
@@ -93,7 +94,7 @@ and open the template in the editor.
                     <td><?php echo $row1[3];?></td>
                     <td><?php echo $row1[4];?></td>
                     <td><?php echo $row1[5];?></td>
-                    <td><?php echo $row1[6];?></td>
+                    <td><?php echo '<img  width="50px" src="data:image/jpeg;base64,'.base64_encode($photo).'">';?></td>
                 </tr> 
                 <?php endwhile;?> 
             </table> 

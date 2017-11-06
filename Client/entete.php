@@ -1,16 +1,17 @@
 <?php
 echo '
 	<div class="entete">
-		<div class="gauche">
-			<a href="accueilClient.php"><img src="/Client/images/pn-logo-petit.png" alt="Logo PariNolas"></a>
-		</div>
-		<div class="droite">
+                <div class="droite">
 			<div class="bonjour">
 				<pre class="bonjour">Bonjour, utilisateur!  <a href="">Se déconnecter</a><br>
-				<a href=""><img src="/Client/images/account.png" alt="Mon compte"></a> <a href=""><img src="/Client/images/cart.png" alt="Panier">  </a></pre>
+				<a href=""><img src="images/account.png" alt="Mon compte"></a> <a href=""><img src="images/cart.png" alt="Panier">  </a></pre>
 			</div>
 			
+		</div>		
+                <div class="gauche">
+			<img href="accueilClient.php"><img src="images/pn-logo-petit.png" alt="Logo PariNolas"></a>
 		</div>
+		
 	</div entete>
 	<div class="menu">
 		<br><hr class="menuHaut">

@@ -1,101 +1,146 @@
-<?php   
-        
-$hostname = 'localhost';
-$username = 'root';
-$password = '';
-$databaseName = 'parinolas';
+<?php
+    $msg = "";
+    if(isset($_POST["upload"])){
 
-$connect = mysqli_connect($hostname, $username, $password, $databaseName);
+        $target = "../Images/".basename($_FILES["image"]["name"]);
 
-$query = "show TABLES";
-$result = mysqli_query($connect, $query); // Get table names
-
-$Nom = $_POST['nom'];
-$ID = $_POST['id'];
-$Sexe = $_POST['sexe'];
-$Type = $_POST['type'];
-$Prix = $_POST['prix'];
-$Couleur = $_POST['couleur'];
-$Grandeur = $_POST['grandeur'];
-$Image = $_POST['filename'];
-$sql = "";
-
-while($row = mysqli_fetch_array($result)): 
+        $dbHost     = 'localhost';
+        $dbUsername = 'root';
+        $dbPassword = '';
+        $dbName     = 'parinolas';
     
-   
+        $db = new mysqli($dbHost, $dbUsername, $dbPassword, $dbName);
         
-        if ($Type == "hautCourt"):
-            $sql = "INSERT INTO `hauts à manches courtes`(ID,Nom,Sexe,Grandeur,Couleur,Prix,Image) VALUES ('$ID','$Nom','$Sexe','$Grandeur','$Couleur','$Prix','$Image')";
-   
-        endif;
-        if ($Type == "hautsLong"):
-            $sql = "INSERT INTO `hauts à manches longues`(ID,Nom,Sexe,Grandeur,Couleur,Prix,Image) VALUES ('$ID','$Nom','$Sexe','$Grandeur','$Couleur','$Prix','$Image')";
+        $Type = $_POST['type'];
+        $id = $_POST['id'];
+        $nom = $_POST['nom'];
+        $sexe = $_POST['sexe'];
+        $grandeur = $_POST['grandeur'];
+        $couleur = $_POST['couleur'];
+        $prix = $_POST['prix'];
+        $image = $_FILES["image"]["name"];
+     
 
-        endif;
-        if ($Type == "shorts"):
-            $sql = "INSERT INTO `shorts`(ID,Nom,Sexe,Grandeur,Couleur,Prix,Image) VALUES ('$ID','$Nom','$Sexe','$Grandeur','$Couleur','$Prix','$Image')";
+        $query = "show TABLES";
+        $result = mysqli_query($db, $query); // Get table names
 
-        endif;
-        if ($Type == "pantalons"):
-            $sql = "INSERT INTO `pantalons`(ID,Nom,Sexe,Grandeur,Couleur,Prix,Image) VALUES ('$ID','$Nom','$Sexe','$Grandeur','$Couleur','$Prix','$Image')";
+        while($row = mysqli_fetch_array($result)):    
+            if ($Type == "hautsCourt"):
+                $sql = "INSERT INTO `hautsCourt`(ID,Nom,Sexe,Grandeur,Couleur,Prix,Image) VALUES ('$id','$nom','$sexe','$grandeur','$couleur','$prix','$image')"; 
+                mysqli_query($db, $sql);
+            endif;
+            if ($Type == "hautsLong"):
+                $sql = "INSERT INTO `hautsLong`(ID,Nom,Sexe,Grandeur,Couleur,Prix,Image) VALUES ('$id','$nom','$sexe','$grandeur','$couleur','$prix','$image')"; 
+                mysqli_query($db, $sql);
+            endif;
+            if ($Type == "shorts"):
+                $sql = "INSERT INTO `shorts`(ID,Nom,Sexe,Grandeur,Couleur,Prix,Image) VALUES ('$id','$nom','$sexe','$grandeur','$couleur','$prix','$image')";
+                mysqli_query($db, $sql);
+            endif;
+            if ($Type == "pantalons"):
+                $sql = "INSERT INTO `pantalons`(ID,Nom,Sexe,Grandeur,Couleur,Prix,Image) VALUES ('$id','$nom','$sexe','$grandeur','$couleur','$prix','$image')"; 
+                mysqli_query($db, $sql);
+            endif;
+            if ($Type == "vestes"):
+                $sql = "INSERT INTO `vestes`(ID,Nom,Sexe,Grandeur,Couleur,Prix,Image) VALUES ('$id','$nom','$sexe','$grandeur','$couleur','$prix','$image')"; 
+                mysqli_query($db, $sql);
+            endif;
+            if ($Type == "foulards"):
+                $sql = "INSERT INTO `foulards`(ID,Nom,Sexe,Grandeur,Couleur,Prix,Image) VALUES ('$id','$nom','$sexe','$grandeur','$couleur','$prix','$image')"; 
+                mysqli_query($db, $sql);
+            endif;
+            if ($Type == "chapeaux"):
+                $sql = "INSERT INTO `chapeaux`(ID,Nom,Sexe,Grandeur,Couleur,Prix,Image) VALUES ('$id','$nom','$sexe','$grandeur','$couleur','$prix','$image')"; 
+                mysqli_query($db, $sql);
+            endif;
+            if ($Type == "ceintures"):
+                $sql = "INSERT INTO `ceintures`(ID,Nom,Sexe,Grandeur,Couleur,Prix,Image) VALUES ('$id','$nom','$sexe','$grandeur','$couleur','$prix','$image')"; 
+                mysqli_query($db, $sql);
+            endif;
+            if ($Type == "gants"):
+                $sql = "INSERT INTO `gants`(ID,Nom,Sexe,Grandeur,Couleur,Prix,Image) VALUES ('$id','$nom','$sexe','$grandeur','$couleur','$prix','$image')";
+                mysqli_query($db, $sql);
+            endif;
+        endwhile;
 
-        endif;
-        if ($Type == "vestes"):
-            $sql = "INSERT INTO `vestes`(ID,Nom,Sexe,Grandeur,Couleur,Prix,Image) VALUES ('$ID','$Nom','$Sexe','$Grandeur','$Couleur','$Prix','$Image')";
-   
-        endif;
-        if ($Type == "foulards"):
-            $sql = "INSERT INTO `foulards`(ID,Nom,Sexe,Grandeur,Couleur,Prix,Image) VALUES ('$ID','$Nom','$Sexe','$Grandeur','$Couleur','$Prix','$Image')";
-
-        endif;
-        if ($Type == "chapeaux"):
-            $sql = "INSERT INTO `chapeaux`(ID,Nom,Sexe,Grandeur,Couleur,Prix,Image) VALUES ('$ID','$Nom','$Sexe','$Grandeur','$Couleur','$Prix','$Image')";
-
-        endif;
-        if ($Type == "ceintures"):
-            $sql = "INSERT INTO `ceintures`(ID,Nom,Sexe,Grandeur,Couleur,Prix,Image) VALUES ('$ID','$Nom','$Sexe','$Grandeur','$Couleur','$Prix','$Image')";
-
-        endif;
-        if ($Type == "gants"):
-            $sql = "INSERT INTO `gants`(ID,Nom,Sexe,Grandeur,Couleur,Prix,Image) VALUES ('$ID','$Nom','$Sexe','$Grandeur','$Couleur','$Prix','$Image')";
-
-        endif;
- 
-endwhile;
-
-
-?> 
+       
+              if(mysqli_query($db, $sql)){
+                           echo 'Non Ajouter';
+                           header("refresh:10; url= adminAccueil.html");
+                        }else{
+                           echo 'Ajouter';
+                           header("refresh:10; url= adminAccueil.html");
+                        }
+         
+         
+        if (move_uploaded_file($_FILES["image"]["tmp_name"], $target)){
+            $msg = "Image uploaded successfully";
+        }else{
+            $msg = "There was a problem uploading image";
+        
+        }
+        
+}
+  
+?>
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-
 <html>
-    <head>
-        <title>Version administrateur: ajout d'item à l'inventaire</title>
+<head>
+	<title>Version administrateur: ajout d'item à l'inventaire</title>
 	<link href="design.css" type="text/css" rel="stylesheet" />
 	<meta charset="UTF-8">
-    </head>
-     <body>
-         <pre>
+</head>
+<body>
+	<pre>
 		Bonjour, Administrateur! | <a href="adminDeconnecte.html">Se déconnecter</a>
 	</pre><hr>
 	<img src="pn-logo-petit.png" alt="PariNolas logo"><br><hr>
 	
-	<h2><u>
-            <?php if(!mysqli_query($connect, $sql)){
-                        echo 'Non ajouter!';
-                  }else{
-                        echo 'Ajouter!';
-                  }
-            ?> 
-        </u></h2><br>
-        
-    </body>
-</html>
+	<h2><u>Ajout d'un item</u></h2><br>
+	
+        <form action="itemAjouter.php" method="post" enctype="multipart/form-data">        
+		<label for="nom">Nom d'item : </label>
+                <input type="text" id="nom" name="nom"  maxlength="40" size="20"><br><br>
+		<label for="id">ID : </label>
+		<input type="text" id="id" name="id" maxlength="50" size="20"><br><br>
+		<label for="sexe">Sexe : </label>
+		<input type="radio" id="sexe" name="sexe" value="F" checked="checked" /> Femme
+		<input type="radio" id="sexe" name="sexe" value="M" /> Homme<br><br>
+		
+		<label for="type">Type : </label>
+		<select name="type" id="type">
+			<option value="hautsLong">Haut &agrave manches longues</option>
+			<option value="hautsCourt">Haut &agrave manches courtes</option>
+			<option value="shorts">Shorts</option>
+			<option value="pantalons">Pantalons</option>
+			<option value="vestes">Vestes</option>
+			<option value="foulards">Foulards</option>
+                        <option value="chapeaux">Chapeaux</option>
+                        <option value="ceintures">Ceintures</option>
+                        <option value="gants">Gants</option>
+		</select><br><br>
+		<label for="prix">Prix : </label>
+		<input type="text" id="prix" name="prix" maxlength="8" size="8"><br><br>
+		<label for="coul">Couleur : </label>
+		<select name="couleur" id="coul">
+			<option value="noir">Noir</option>
+			<option value="bleu">Bleu</option>
+			<option value="rouge">Rouge</option>
+			<option value="rose">Rose</option>
+			<option value="jaune">Jaune</option>
+			<option value="blanc">Blanc</option>
+			<option value="autre">Autre</option>			
+		</select><br><br>
+		<label for="size">Grandeur : </label>
+		<input type="radio" id="size" name="grandeur" value="p" checked="checked" /> Petit
+		<input type="radio" id="size" name="grandeur" value="m" /> Moyen
+		<input type="radio" id="size" name="grandeur" value="g" /> Grand<br><br>
+                
+		<label for="image">Image : </label>
+		<input type="file" name="image" accept="image/gif, image/jpeg, image/png"><br><br><br>
 
-<?php       
-header("refresh:5; url= adminAccueil.html");        
-?> 
+		<input type="submit" name="upload" value="Upload">
+        </form>
+        <button onclick="window.history.back();">Retour accueil</button>
+</body>
+</html>

@@ -15,12 +15,12 @@ $query = "show TABLES";
 $result = mysqli_query($connect, $query); // Get table names
 
 while($row = mysqli_fetch_array($result)):    
-     if ($Type == "hautCourt"):
-       $query = "SELECT * FROM `hauts à manches courtes`"; 
+     if ($Type == "hautsCourt"):
+       $query = "SELECT * FROM `hautsCourt`"; 
        $result1 = mysqli_query($connect, $query);
     endif;
     if ($Type == "hautsLong"):
-       $query = "SELECT * FROM `hauts à manches longues`"; 
+       $query = "SELECT * FROM `hautsLong`"; 
        $result1 = mysqli_query($connect, $query);
     endif;
     if ($Type == "shorts"):

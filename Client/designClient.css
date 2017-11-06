@@ -1,5 +1,5 @@
 body {
-	background-image: url("/Client/images/'f9d266aa.png'.png");
+	background-image: url("images/f9d266aa.png");
 	color: #b8bbc1;
 }
 
@@ -22,18 +22,49 @@ a:active {
 
 div.entete {
 	float: none;
+        width:100%;
+        text-align:center;
+}
+
+div.main {
+        float: left;
+        width: 250px;
+        height: 300px;
+        text-align:center;
+	border: 3px solid;
+        position: relative;
+        
+}
+
+div.photo {
+        border-bottom: 1px solid;
+        position: relative;
+	
+}
+
+div.nomPrix {
+        width: auto;
+        max-height: 175px;
+        text-align: center;
+        position: relative;
 }
 
 img {
 	margin: 2px 2px 2px 2px;
+        display:inline-block;
+        margin: 0 auto;
+        
 }
+
+
 
 div.menu {
 	float: none;
 }
 
 div.gauche {
-	float: left;
+        
+	
 	width: 40%;
 	length: 10 cm;
 }

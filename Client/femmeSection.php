@@ -12,8 +12,7 @@
 
 <body>
 		
-	<?php include 'femmeMenu.php'; ?>
-
+	<?php include 'femmeMenu.php';?> 
 	
 </body>
 
