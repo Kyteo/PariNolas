@@ -127,7 +127,7 @@ return $result1;
                    
                   ?><div class="main"><?php
                        ?><div class="photo"><?php
-                            echo '<img id="superIMG" src="../images/'.$row['Image'].'" width="175" height="175">'; 
+                            echo '<img id="superIMG" src="../Images/'.$row['Image'].'" width="175" height="175">'; 
                        ?></div><?php
                        ?><div class="nomPrix"><?php
                             echo "<p>".$row['Nom']."</p>";

@@ -94,7 +94,7 @@ and open the template in the editor.
                     <td><?php echo $row1[3];?></td>
                     <td><?php echo $row1[4];?></td>
                     <td><?php echo $row1[5];?></td>
-                    <td><?php echo '<img  width="50px" src="data:image/jpeg;base64,'.base64_encode($photo).'">';?></td>
+                    <td><?php echo '<img  width="50px" src="../Images/'.$row['Image'].'">';?></td>
                 </tr> 
                 <?php endwhile;?> 
             </table> 
