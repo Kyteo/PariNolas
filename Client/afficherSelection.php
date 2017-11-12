@@ -2,10 +2,11 @@
 
 
 function afficherSelection($selection, $sexe) {
-           
+       
+		   
 $hostname = 'localhost';
 $username = 'root';
-$password = '';
+$password = 'root';
 $databaseName = 'parinolas';
 
 $connect = mysqli_connect($hostname, $username, $password, $databaseName);
@@ -76,6 +77,8 @@ return $result1;
 <body>
 	<?php 
 	
+		include "trouverAttributsItem.php";
+		
 		$type = $_GET['type'];
 		$sexe = $type[0];
 		$selection = substr($type, 1);
@@ -89,35 +92,8 @@ return $result1;
 		}
 		echo '<h2>';
 
-		switch($selection) {
-			case 'hc': 
-				echo 'Hauts à manches courtes';
-				break;
-			case 'hl':
-				echo 'Hauts à manches longues';
-				break;
-			case 'pa':
-				echo 'Pantalons';
-				break;
-			case 'sh':
-				echo 'Shorts';
-				break;
-			case 've':
-				echo 'Vestes';
-				break;
-			case 'fo':
-				echo 'Foulards';
-				break;
-			case 'ch':
-				echo 'Chapeaux';
-				break;
-			case 'ce':
-				echo 'Ceintures';
-				break;
-			case 'ga':
-				echo 'Gants';
-				break;
-		}
+		$selection_complet = trouverSelection($selection);
+		echo $selection_complet;
 		
 		echo '</h2>';
 		
@@ -127,15 +103,31 @@ return $result1;
                    
                   ?><div class="main"><?php
                        ?><div class="photo"><?php
-                            echo '<img id="superIMG" src="../Images/'.$row['Image'].'" width="175" height="175">'; 
+                            echo '
+								<form action="afficherPageItem.php" method="get" enctype="multipart/form-data">
+									<input type="hidden" value=" '.$row.' " name="Row">
+									<input type="hidden" value="' .$selection. '" name="Selection">
+									<input type="hidden" value=" '.$row['ID'].' " name="ID">
+									<input type="hidden" value=" '.$row['Nom'].' " name="Nom">
+									<input type="hidden" value=" '.$row['Sexe'].' " name="Sexe">
+									<input type="hidden" value=" '.$row['Grandeur'].' " name="Grandeur">
+									<input type="hidden" value=" '.$row['Couleur'].' " name="Couleur">
+									<input type="hidden" value=" '.$row['Prix'].' " name="Prix">
+									<input type="hidden" value=" '.$row['Image'].' " name="Img">
+						
+	                            	<input type="image" src="../Images/'.$row['Image'].'" name="Image" width="175" height="175" alt=" '.$row['Nom']. '">
+								</form>
+								'; 
                        ?></div><?php
                        ?><div class="nomPrix"><?php
                             echo "<p>".$row['Nom']."</p>";
                             echo "<p>".$row['Prix']."</p>";
+							echo "<p>".$row['Image']."</p>";
                        ?></div><?php
                   ?></div><?php
                   
                 endwhile;
+				
 	?>
 	
 </body>
