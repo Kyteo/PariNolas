@@ -1,3 +1,4 @@
+
 body {
 	background-image: url("images/f9d266aa.png");
 	color: #b8bbc1;
@@ -30,8 +31,8 @@ div.main {
         float: left;
         width: 250px;
         height: 300px;
-        text-align:center;
-	border: 3px solid;
+        text-align: center;
+		border: 3px solid;
         position: relative;
         
 }
@@ -124,5 +125,91 @@ div.menuHomme,div.menuFemme {
 }
 #homme {
 	color: #42f4f1;
+}
+
+
+
+div.item {
+    float: left;
+    width: 400px;
+    height: 400px;
+    text-align: center;
+	border: 3px solid;
+    position: relative;
+	
+	margin-left: 10em;
+	margin-top: 4em;
+	
+	
+}
+div.descr {
+	float: right;
+    width: 300px;
+    height: 400px;
+	margin-top: 4em;
+	margin-right: 10em;
+	position: relative;
+	font-family: Century Gothic;
+	
+	
+}
+p.nomItem {
+	font-family: Copperplate Gothic Light;
+	font-size: 25px; 
+	text-transform: capitalize; 
+	font-weight: bolder;
+	color: white;
+}
+form.elements {
+	font-family: Century Gothic; 
+	color: #a5780e;
+}
+img.panier:hover {
+	border: 2px solid gold;
+}
+.panierItem{
+	text-align: center;
+}
+h3.item {
+	color: white;
+	font-family: Yuppy SC Regular;
+	font-weight: bold;
+}
+th,td {
+	text-align: center;
+	font-family: Century Gothic;
+}
+th {
+	padding: 10px;
+	color: #616b7c;
+}
+td {
+	padding: 20px;
+	color: #a5780e;
+}
+th.prix, td.prix {
+	padding: 5px;
+	color: blue;
+}
+th.delete {
+	color: red;
+}
+h1.panier {
+	font-family: Harrington;
+	margin-left: 90px;
+	color: #939171;
+}
+table.panierItem {
+	width: 800px;
+	margin:0 auto;
+}
+div.prix {
+	width: 250px;
+	margin:0 auto;
+	background-color: white;
+}
+img#delete {
+	width: 30px;
+	height: 30px;
 }
 
