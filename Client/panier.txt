@@ -1,0 +1,4 @@
+ch f  1111  Chapeau1  11.00 nrS1
+pa M  3039  Salut  3.33 nrS1
+ch f  4141  Chapeau14  41.00 nrL1
+ga F  220  Truc  2.00 nrS1
