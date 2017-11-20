@@ -83,6 +83,7 @@ and open the template in the editor.
                     <td>Couleur</td>
                     <td>Prix</td>  
                     <td>Image</td>  
+                    <td>Stock</td> 
                 </tr>
         
                 <?php while($row1 = mysqli_fetch_array($result1)): 
@@ -94,7 +95,8 @@ and open the template in the editor.
                     <td><?php echo $row1[3];?></td>
                     <td><?php echo $row1[4];?></td>
                     <td><?php echo $row1[5];?></td>
-                    <td><?php echo '<img  width="50px" src="../Images/'.$row['Image'].'">';?></td>
+                    <td><?php echo '<img  width="50px" src="../Admin/Images/'.$row1['Image'].'">';?></td>
+                    <td><?php echo $row1[7];?></td>
                 </tr> 
                 <?php endwhile;?> 
             </table> 

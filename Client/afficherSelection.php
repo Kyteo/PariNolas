@@ -6,7 +6,7 @@ function afficherSelection($selection, $sexe) {
 		   
 $hostname = 'localhost';
 $username = 'root';
-$password = 'root';
+$password = '';
 $databaseName = 'parinolas';
 
 $connect = mysqli_connect($hostname, $username, $password, $databaseName);
@@ -105,15 +105,14 @@ return $result1;
                        ?><div class="photo"><?php
                             echo '
 								<form action="afficherPageItem.php" method="get" enctype="multipart/form-data">
-									<input type="hidden" value=" '.$row.' " name="Row">
-									<input type="hidden" value="' .$selection. '" name="Selection">
-									<input type="hidden" value=" '.$row['ID'].' " name="ID">
-									<input type="hidden" value=" '.$row['Nom'].' " name="Nom">
-									<input type="hidden" value=" '.$row['Sexe'].' " name="Sexe">
-									<input type="hidden" value=" '.$row['Grandeur'].' " name="Grandeur">
-									<input type="hidden" value=" '.$row['Couleur'].' " name="Couleur">
-									<input type="hidden" value=" '.$row['Prix'].' " name="Prix">
-									<input type="hidden" value=" '.$row['Image'].' " name="Img">
+									<input type="hidden" value="' .$selection.'" name="Selection">
+									<input type="hidden" value="'.$row['ID'].'" name="ID">
+									<input type="hidden" value="'.$row['Nom'].'" name="Nom">
+									<input type="hidden" value="'.$row['Sexe'].'" name="Sexe">
+									<input type="hidden" value="'.$row['Grandeur'].'" name="Grandeur">
+									<input type="hidden" value="'.$row['Couleur'].'" name="Couleur">
+									<input type="hidden" value="'.$row['Prix'].'" name="Prix">
+									<input type="hidden" value="'.$row['Image'].'" name="Image">
 						
 	                            	<input type="image" src="../Images/'.$row['Image'].'" name="Image" width="175" height="175" alt=" '.$row['Nom']. '">
 								</form>

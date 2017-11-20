@@ -7,6 +7,8 @@ $databaseName = 'parinolas';
 
 $connect = mysqli_connect($hostname, $username, $password, $databaseName);
 
+$target = "../Admin/Images";
+
 $Type = $_POST['type'];
 $ID = $_POST['id'];
 $sql = '';
@@ -16,45 +18,92 @@ $result = mysqli_query($connect, $query); // Get table names
 
 while($row = mysqli_fetch_array($result)):    
      if ($Type == "hautsCourt"):
-       $query = "SELECT * FROM `hautsCourt`"; 
+       $query = "SELECT Image FROM `hautsCourt` WHERE ID LIKE '$ID'"; 
        $result1 = mysqli_query($connect, $query);
     endif;
     if ($Type == "hautsLong"):
-       $query = "SELECT * FROM `hautsLong`"; 
+       $query = "SELECT Image FROM `hautsLong` WHERE ID LIKE '$ID'"; 
        $result1 = mysqli_query($connect, $query);
     endif;
     if ($Type == "shorts"):
-       $query = "SELECT * FROM `shorts`"; 
+       $query = "SELECT Image FROM `shorts` WHERE ID LIKE '$ID'"; 
        $result1 = mysqli_query($connect, $query);
     endif;
     if ($Type == "pantalons"):
-       $query = "SELECT * FROM `pantalons`"; 
+       $query = "SELECT Image FROM `pantalons` WHERE ID LIKE '$ID'"; 
        $result1 = mysqli_query($connect, $query);
     endif;
     if ($Type == "vestes"):
-       $query = "SELECT * FROM `vestes`"; 
+       $query = "SELECT Image FROM `vestes` WHERE ID LIKE '$ID'"; 
        $result1 = mysqli_query($connect, $query);
     endif;
     if ($Type == "foulards"):
-       $query = "SELECT * FROM `foulards`"; 
+       $query = "SELECT Image FROM `foulards` WHERE ID LIKE '$ID'"; 
        $result1 = mysqli_query($connect, $query);
     endif;
     if ($Type == "chapeaux"):
-       $query = "SELECT * FROM `chapeaux`"; 
+       $query = "SELECT Image FROM `chapeaux` WHERE ID LIKE '$ID'"; 
        $result1 = mysqli_query($connect, $query);
     endif;
     if ($Type == "ceintures"):
-       $query = "SELECT * FROM `ceintures`"; 
+       $query = "SELECT Image FROM `ceintures` WHERE ID LIKE '$ID'"; 
        $result1 = mysqli_query($connect, $query);
     endif;
     if ($Type == "gants"):
-       $query = "SELECT * FROM `gants`"; 
+       $query = "SELECT Image FROM `gants` WHERE ID LIKE '$ID'"; 
        $result1 = mysqli_query($connect, $query);
     endif;
 endwhile;
 
-while($row1 = mysqli_fetch_array($result1)):  
-    if ($row1[0] == $ID):
+while($row3 = mysqli_fetch_array($result1)):
+          unlink($target.'/'.$row3[0]);
+endwhile;
+                               
+$query = "show TABLES";
+$result = mysqli_query($connect, $query);
+
+while($row1 = mysqli_fetch_array($result)):  
+     if ($Type == "hautsCourt"):
+       $query2 = "SELECT * FROM `hautsCourt`"; 
+       $result2 = mysqli_query($connect, $query2);
+    endif;
+    if ($Type == "hautsLong"):
+       $query2 = "SELECT * FROM `hautsLong`"; 
+       $result2 = mysqli_query($connect, $query2);
+    endif;
+    if ($Type == "shorts"):
+       $query2 = "SELECT * FROM `shorts`"; 
+       $result2 = mysqli_query($connect, $query2);
+    endif;
+    if ($Type == "pantalons"):
+       $query2 = "SELECT * FROM `pantalons`"; 
+       $result2 = mysqli_query($connect, $query2);
+    endif;
+    if ($Type == "vestes"):
+       $query2 = "SELECT * FROM `vestes`"; 
+       $result2 = mysqli_query($connect, $query2);
+    endif;
+    if ($Type == "foulards"):
+       $query2 = "SELECT * FROM `foulards`"; 
+       $result2 = mysqli_query($connect, $query2);
+    endif;
+    if ($Type == "chapeaux"):
+       $query2 = "SELECT * FROM `chapeaux`"; 
+       $result2 = mysqli_query($connect, $query2);
+    endif;
+    if ($Type == "ceintures"):
+       $query2 = "SELECT * FROM `ceintures`"; 
+       $result2 = mysqli_query($connect, $query2);
+    endif;
+    if ($Type == "gants"):
+       $query2 = "SELECT * FROM `gants`"; 
+       $result2 = mysqli_query($connect, $query2);
+    endif;
+endwhile;
+
+
+while($row2 = mysqli_fetch_array($result2)): 
+    if ($row2[0] == $ID):
         if ($Type == "hautCourt"):
             $sql = "DELETE FROM `hauts à manches courtes` WHERE ID LIKE '$ID'";
         endif;
@@ -86,6 +135,7 @@ while($row1 = mysqli_fetch_array($result1)):
 endwhile;
 
 
+
 ?> 
 <!DOCTYPE html>
 <!--
@@ -113,6 +163,11 @@ and open the template in the editor.
                                 echo 'Non supprimer';
                         }else{
                                 echo 'Supprimer';
+                                
+                                while($row3 = mysqli_fetch_array($result1)):
+                                    echo $row3[0];
+                                    unlink($target.'/'.$row3[0]);
+                                    endwhile;
                         }
                    }else{    
                                 echo 'Usager non trouvé, rien de supprimer';

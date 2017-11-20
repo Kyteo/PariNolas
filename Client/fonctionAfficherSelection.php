@@ -4,7 +4,7 @@ function afficherSelection($selection, $sexe) {
            
 $hostname = 'localhost';
 $username = 'root';
-$password = 'root';
+$password = '';
 $databaseName = 'parinolas';
 echo "Dans affi";
 $connect = mysqli_connect($hostname, $username, $password, $databaseName);

@@ -17,7 +17,7 @@
 	<?php 
 	
 	include 'entete.php'; 
-	$img = $_POST['Image'];
+	$img = $_GET['Image'];
 	$type = $_GET['Selection'];
 	$id = $_GET['ID'];
 	$nom = $_GET['Nom'];
@@ -25,12 +25,12 @@
 	$grandeur = $_GET['Grandeur'];
 	$prix = $_GET['Prix'];
 	
-	echo 'Limage est : '.$img;
+	echo 'L image est : '.$img;
 	
 	
 	echo "<div class='item'>";
 	
-	echo ' <img src="../Images/'.$img.'" width="400" height="400" alt=" '.$nom.'"> ';
+	echo '<img src="../Images/'.$img.'" width="400" height="400" >';
 	echo '<br><br>ID : '.$id;
 	echo "</div>";
 	
