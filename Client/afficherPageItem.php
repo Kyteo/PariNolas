@@ -30,7 +30,7 @@
 	
 	echo "<div class='item'>";
 	
-	echo '<img src="../Images/'.$img.'" width="400" height="400" >';
+	echo '<img src="../Admin/Images/'.$img.'" width="400" height="400" >';
 	echo '<br><br>ID : '.$id;
 	echo "</div>";
 	

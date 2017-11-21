@@ -114,7 +114,7 @@ return $result1;
 									<input type="hidden" value="'.$row['Prix'].'" name="Prix">
 									<input type="hidden" value="'.$row['Image'].'" name="Image">
 						
-	                            	<input type="image" src="../Images/'.$row['Image'].'" name="Image" width="175" height="175" alt=" '.$row['Nom']. '">
+	                            	<input type="image" src="../Admin/Images/'.$row['Image'].'" name="Image" width="175" height="175" alt=" '.$row['Nom']. '">
 								</form>
 								'; 
                        ?></div><?php

@@ -29,7 +29,7 @@
 		
 		$ligne = fgets($fichier);
 		$tab_ligne_lue = explode(" ", $ligne);
-		$nom = $tab_ligne_lue[5];
+		$nom = $tab_ligne_lue[3];
 		echo '<h3 class="item">' . $nom . '</h3>';
 		echo '
 			<table border="1" class="panierItem">
@@ -43,13 +43,12 @@
 				</tr>
 				<tr>
 		';
-		$id = $tab_ligne_lue[3];
-		$prix = $tab_ligne_lue[7];
+		$id = $tab_ligne_lue[2];
+		$prix = $tab_ligne_lue[4];
 		$sous_total_prix += $prix;
-		$reste = $tab_ligne_lue[8];
-		$couleur = trouverCouleur(substr($reste, 0, 2));
-		$grandeur = substr($reste, 2, 1);
-		$qte = substr($reste, 3);
+		$couleur = trouverCouleur($tab_ligne_lue[5]);
+		$grandeur = $tab_ligne_lue[6];
+		$qte = $tab_ligne_lue[7];
 		echo '<td>' . $id . '</td>';
 		echo '<td>' . $couleur . '</td>';
 		echo '<td>' . $grandeur . '</td>';
