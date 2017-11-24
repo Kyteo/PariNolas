@@ -1,2 +1,2 @@
-pa f 1112 Pan 22.00 nr S 1
-sh F 11 Short1 11.00 nr S 1
+pa M 11 Pants1 11.00 nr S 1
+pa M 11 Pants1 11.00 nr S 1
