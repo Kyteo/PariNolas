@@ -34,13 +34,13 @@
 		$courant .= "\n";
 	}
 	$courant .= $type;
-	$courant .= " " . $sexe;
-	$courant .= " " . $id;
-	$courant .= " " . $nom;
-	$courant .= " " . $prix;
-	$courant .= " " . $coul;
-	$courant .= " " . $grandeur;
-	$courant .= " " . $qte;
+	$courant .= " ".$sexe;
+	$courant .= " ".$id;
+	$courant .= " ".$nom;
+	$courant .= " ".$prix;
+	$courant .= " ".$coul;
+	$courant .= " ".$grandeur;
+	$courant .= " ".$qte;
 	file_put_contents($fichier, $courant);
 
 	echo "<br><h3>Item ajouté au panier!</h3>";

@@ -27,6 +27,7 @@
         
         $nom = $_POST['nomClient'];
         $prenom = $_POST['prenomClient'];
+        $email = $_POST['emailClient'];
         $adresse = $_POST['adresseClient'];
         $codePostal = $_POST['codePostal'];
         $province = $_POST['province'];
@@ -34,16 +35,20 @@
         $methode = $_POST['methode'];
         
         echo $nom.', '.$prenom.'</br>';
-        echo $adresse.', '.$province.'</br>';
-        echo $pays.'</br>';
-        echo '---------------- </br></br></br>';
-        echo 'Methode de paiement: '.$methode.'</br>';
-        
+        echo $email.'</br>';
+        echo $adresse.', '.$codePostal.'</br>';
+        echo $province.', '.$pays.'</br>';
+        echo '---------------- </br></br>';
+        echo 'Methode de paiement: '.$methode.'</br></br>';
+        echo '---------------- </br></br>';
         
         while(!feof($fichier)) {
             
             $ligne = fgets($fichier);
 	    $tab_ligne_lue = explode(" ", $ligne);
+            
+            if ($tab_ligne_lue[0] != ""){
+                
             
             echo 'Nom: '.$tab_ligne_lue[3].' </br>
             Sexe: '.$tab_ligne_lue[1].' </br>
@@ -51,11 +56,22 @@
             Couleur: '.$tab_ligne_lue[5].' </br>
             Prix: '.$tab_ligne_lue[4].' </br>
             ------------ </br>';
-            
+            }
        
         }
         
-        header("refresh:12; url=afficherPanier.php");
+       echo '<form action="confirmationAchat.php" method="post" enctype="multipart/form-data">
+                <input type="hidden" value="'.$nom.'" name="nom">
+		<input type="hidden" value="'.$prenom.'" name="prenom">
+                <input type="hidden" value="'.$email.'" name="email">
+		<input type="hidden" value="'.$adresse.'" name="adresse">
+		<input type="hidden" value="'.$codePostal.'" name="codePostal">
+		<input type="hidden" value="'.$province.'" name="province">
+		<input type="hidden" value="'.$pays.'" name="pays">
+		<input type="hidden" value="'.$methode.'" name="methode">
+	              
+                <button name="delete" type="submit">Button</button>
+                </form>'
 ?>      
 </body>
 </html>
