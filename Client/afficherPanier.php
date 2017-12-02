@@ -96,22 +96,24 @@ if(isset($_POST["delete"])){
 	$tps = $sous_total_prix * 0.05;
 	$tvq = ($sous_total_prix + $tps) * 0.0975;
 	$taxes = $tps + $tvq;
+	$taxes_arrondies = arrondirPrix($taxes);
 	$total_prix = $sous_total_prix + $taxes;
+	$total_arrondi = arrondirPrix($total_prix);
 	echo '
 		<br><br>
 		<div class="prix">
 			<table class="prix">
 				<tr>
 					<th class="prix"><h4>Sous-total : </th> 
-					<td class="prix">'. $sous_total_prix .'</td>
+					<td class="prix">'. $sous_total_prix .'$</td>
 				</tr>
 				<tr>
 					<th class="prix">Taxes :</th>
-					<td class="prix">'. $taxes . '</td></h4>
+					<td class="prix">'. $taxes_arrondies . '$</td></h4>
 				</tr>
 				<tr>
 					<th class="prix"><h3>Total :</th>
-					<td class="prix">'. $total_prix . '</td></h3>
+					<td class="prix">'. $total_arrondi . '$</td></h3>
 				</tr>
 			</table>
                         
@@ -120,11 +122,40 @@ if(isset($_POST["delete"])){
         
         
             
-        <form action="paiement.php" method="post" enctype="multipart/form-data">
+        <form id="commander" action="paiement.php" method="post" enctype="multipart/form-data">
             
-             <input type="hidden" value="'.$total_prix.'" name="totalPrix">
-             <button name="commander" type="submit">Commander</button>
-        </form>'
+             <input type="hidden" value="'.$total_arrondi.'" name="totalPrix">
+             <button id="caisse" name="commander" type="submit">Passez à la caisse</button>
+        </form>';
+		
+		
+		include 'basDePage.php';
     ?>
 		
 </body>
+
+
+<?php
+
+	/* Fonction appelée pour arrondir le prix et retourne le prix arrondi */
+
+	function arrondirPrix($prix) {
+		$array_prix = explode(".", $prix);
+		$avant_virg = $array_prix[0];
+		$apres_virg = $array_prix[1];
+		$prem_chiffre = $apres_virg[0];
+		$deux_chiffre = $apres_virg[1];
+		$trois_chiffre = $apres_virg[2];
+
+		if($trois_chiffre >= 5) {
+			$deux_chiffre++;
+		}
+		$prix = $avant_virg;
+		$prix .= '.';
+		$prix .= $prem_chiffre;
+		$prix .= $deux_chiffre;
+		
+		return $prix;
+	}
+
+?>
