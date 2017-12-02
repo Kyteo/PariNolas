@@ -35,6 +35,41 @@ function trouverSelection($selectionAVerifier) {
 	
 }
 
+function trouverSelection2($selectionAVerifier) {
+	
+	switch($selectionAVerifier) {
+		case 'hc': 
+			$selection = 'hautsCourt';
+			break;
+		case 'hl':
+			$selection = 'hautsLong';
+			break;
+		case 'pa':
+			$selection = 'pantalons';
+			break;
+		case 'sh':
+			$selection = 'shorts';
+			break;
+		case 've':
+			$selection = 'vestes';
+			break;
+		case 'fo':
+			$selection = 'foulards';
+			break;
+		case 'ch':
+			$selection = 'chapeaux';
+			break;
+		case 'ce':
+			$selection = 'ceintures';
+			break;
+		case 'ga':
+			$selection = 'gants';
+			break;
+	}
+	return $selection;
+	
+}
+
 function trouverCouleur($couleurAVerifier) {
 	$couleur = "";
 	switch($couleurAVerifier) {

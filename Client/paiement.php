@@ -37,6 +37,8 @@
         <input type="text" id="nomClient" name="nomClient" maxlength="50" size="20"><br><br>
         <label for="prenomClient">Prenom : </label>
         <input type="text" id="prenomClient" name="prenomClient" maxlength="50" size="20"><br><br>
+        <label for="emailClient">Email : </label>
+        <input type="text" id="emailClient" name="emailClient" maxlength="50" size="20"><br><br>
         <label for="adresseClient">Adresse : </label>
         <input type="text" id="adresseClient" name="adresseClient" maxlength="50" size="20"><br><br>
         <label for="codePostal">Code Postal : </label>
