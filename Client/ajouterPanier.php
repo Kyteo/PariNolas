@@ -33,9 +33,9 @@
 	if($courant != null) {
 		$courant .= "\n";
 	}
+        $courant .= " " . $id;
 	$courant .= $type;
 	$courant .= " " . $sexe;
-	$courant .= " " . $id;
 	$courant .= " " . $nom;
 	$courant .= " " . $prix;
 	$courant .= " " . $coul;
