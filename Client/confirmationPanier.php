@@ -1,5 +1,4 @@
 <?php
-
 ?>
 
 
@@ -56,9 +55,6 @@
             $ligne = fgets($fichier);
 	    $tab_ligne_lue = explode(" ", $ligne);
             
-            if ($tab_ligne_lue[0] != ""){
-                
-            
             if($tab_ligne_lue[1] == 'M' || $tab_ligne_lue[1] == 'm') {
 		$selection = 'Hommes';
             } else {
@@ -76,7 +72,25 @@
             }
        
         }
-      }  
+        
+        echo '</div>';
+        echo '</div>';
+        
+       echo '<form action="confirmationAchat.php" method="post" enctype="multipart/form-data">
+                <input type="hidden" value="'.$nom.'" name="nom">
+		<input type="hidden" value="'.$prenom.'" name="prenom">
+                <input type="hidden" value="'.$email.'" name="email">
+		<input type="hidden" value="'.$adresse.'" name="adresse">
+		<input type="hidden" value="'.$codePostal.'" name="codePostal">
+		<input type="hidden" value="'.$province.'" name="province">
+		<input type="hidden" value="'.$pays.'" name="pays">
+		<input type="hidden" value="'.$methode.'" name="methode">
+	              
+                <button id="placerCommande" name="delete" type="submit">Placer ma commande</button>
+                </form>';
+               
+	
+	 include 'basDePage.php';      
 ?>      
 </body>
 </html>
