@@ -70,10 +70,7 @@ and open the template in the editor.
 	<meta charset="UTF-8">
     </head>
      <body>
-         <pre>
-		Bonjour, Administrateur! | <a href="adminDeconnecte.html">Se déconnecter</a>
-	</pre><hr>
-	<img src="pn-logo-petit.png" alt="PariNolas logo"><br><hr>
+        <hr><img src="pn-logo-petit.png" alt="PariNolas logo"><br><hr>
 	
 	<h2><u>Inventaire</u></h2><br>
         <ul>

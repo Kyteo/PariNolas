@@ -3,7 +3,6 @@ echo '
 	<div class="entete">
                 <div class="droite">
 			<div class="bonjour">
-				<pre class="bonjour">Bonjour, utilisateur!  <a href="">Se déconnecter</a><br>
 				<a href=""><img src="images/account.png" alt="Mon compte"></a> <a href="afficherPanier.php"><img src="images/cart.png" alt="Panier">  </a></pre>
 			</div>
 			
