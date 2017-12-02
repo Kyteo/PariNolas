@@ -21,12 +21,15 @@
         
          $totalPrix = $_POST['totalPrix'];
         
-         echo '
-		<br>
-		<h1 class="paiement">Méthode de paiement</h1>
-		<br>';
+	 	echo '
+	 		<br><div id="paiement">
+	 		<h1 class="paiement">Méthode de paiement</h1>
+	 		<br>
+	 		';
 	
-        echo 'Adresse de livraison <br><br>';
+	 	echo '
+	 		<h4>Total avec taxes : '.$totalPrix.' $</h4>
+	 		<h3>Adresse d&apos;expédition</h3><br>';
 
       
         
@@ -60,9 +63,8 @@
                 <input type="radio" id="methode" name="methode" value="paypal" /> PayPal<br><br>
         <input type="hidden" value="'.$totalPrix.'" name="totalPrix">
         <button name="suivant" type="submit">Suivant</button>
-        </form> 
+        </form>' 
          
-         ';
 ?>
     
     

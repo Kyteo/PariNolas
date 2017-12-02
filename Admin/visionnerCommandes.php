@@ -6,7 +6,10 @@
 </head>
 
 <body>
-	<hr><img src="pn-logo-petit.png" alt="PariNolas logo"><br><hr>
+	<pre>
+		Bonjour, Administrateur! | <a href="adminDeconnecte.html">Se déconnecter</a>
+	</pre><hr>
+	<img src="pn-logo-petit.png" alt="PariNolas logo"><br><hr>
 	
 	<h2><u>Commandes recentes</u></h2><br>
         <?php
