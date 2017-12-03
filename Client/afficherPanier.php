@@ -69,6 +69,7 @@ if(isset($_POST["delete"])){
 		$couleur = trouverCouleur($tab_ligne_lue[5]);
 		$grandeur = $tab_ligne_lue[6];
 		$quantite = $tab_ligne_lue[7];
+               
 		echo '<td>' . $id . '</td>';
 		echo '<td>' . $couleur . '</td>';
 		echo '<td>' . $grandeur . '</td>';
@@ -141,6 +142,7 @@ if(isset($_POST["delete"])){
 
 	function arrondirPrix($prix) {
 		$array_prix = explode(".", $prix);
+                if ($array_prix[0] != 0){
 		$avant_virg = $array_prix[0];
 		$apres_virg = $array_prix[1];
 		$prem_chiffre = $apres_virg[0];
@@ -154,7 +156,7 @@ if(isset($_POST["delete"])){
 		$prix .= '.';
 		$prix .= $prem_chiffre;
 		$prix .= $deux_chiffre;
-		
+		}
 		return $prix;
 	}
 

@@ -16,9 +16,11 @@
         include 'trouverAttributsItem.php';
         
         echo '
-		<br>
-		<h1 class="confirmation">Confirmation de la commande</h1>
-		<br>';
+            <br>
+            <div id="confirmCommande">
+		<h1 class="confirmation">Confirmation de l achat</h1>
+            <br>
+	';
         
         $hostname = 'localhost';
         $username = 'root';
@@ -36,15 +38,22 @@
         $pays = $_POST['pays'];
         $methode = $_POST['methode'];
         
+        $fichier = fopen("panier.txt", "r");
+       
+        echo '<div id="adresseExpedition">';
+	echo '<h2 class="titreConfirmation">Adresse d&apos;expédition</h2>';
         echo $nomClient.', '.$prenomClient.'</br>';
         echo $emailClient.'</br>';
-        echo $adresseClient.', '.$province.'</br>';
-        echo $codePostal.', '.$pays.'</br>';
-        echo '---------------- </br></br>';
-        echo 'Methode de paiement: '.$methode.'</br></br>';
-        echo '---------------- </br></br>';
+        echo $adresseClient.', '.$codePostal.'</br>';
+        echo $province.', '.$pays.'</br>';
+        echo '---------------- </br>';
+        echo 'Methode de paiement: '.$methode.'</br>';
+        echo '---------------- </br>';
+        echo '</div';
         
-        $fichier = fopen("panier.txt", "r");
+        echo '<h2 class="titreConfirmation">Vos items choisis:</h2></br></br>';
+    
+        echo '<div id="itemsCommande">';
         
         while(!feof($fichier)) {
             $query = "show TABLES";
@@ -61,14 +70,17 @@
             $sexe = $tab_ligne_lue[1];
             $quantite = $tab_ligne_lue[7];          
             
-            echo 'Type: '.$type.' </br>
-            ID: '.$ID.' </br>
-            Nom: '.$nom.' </br>
-            Sexe: '.$sexe.' </br>
-            Quantite: '.$quantite.' </br>'
-                    .'---------------- </br>';
+            echo 'Nom: '.$nom.' <br>
+                    Sélection: '.$sexe.' <br>
+                    Grandeur: '.$tab_ligne_lue[6].' <br>
+                    Couleur: '.$tab_ligne_lue[5].' <br>
+                    Prix unitaire: '.$tab_ligne_lue[4].' <br>
+                    Quantité: '.$quantite.' <br>
+                    ------------ </br>';
             
-
+        echo '</div>';
+        echo '</div>';
+        
         while($row = mysqli_fetch_array($result)):    
             if ($type == "hc"):
                 $query = "SELECT Quantite FROM `hautsCourt` WHERE ID LIKE '$ID' AND NOM LIKE '$nom' AND SEXE LIKE '$sexe'"; 
@@ -113,12 +125,12 @@
         
         
         while($row1 = mysqli_fetch_array($result1)):  
-                echo 'Quantite db: '.$row1[0].'</br>';
+                
         
                 
                 $quantite2 = $row1[0] - (int)$quantite;
                 
-                echo 'Quantite nouvelle: '.$quantite2.'</br></br>';
+                
                 
                 $type2 = trouverSelection2($type);
                 
@@ -137,7 +149,12 @@
         date_default_timezone_set('America/Montreal');
         $date = date('Y-m-d_H-i-s');
        
-        $fichier2 = '../Client/commandes/Commandes-'.$date.'.txt';
+        if(!file_exists("../Client/commandes/Commandes-'.$date.'.txt")) {
+		$fichier = fopen("../Client/commandes/Commandes-'.$date.'.txt", "w");
+	}
+	
+        
+        $fichier2 = "../Client/commandes/Commandes-'.$date.'.txt";
         
         $courant = file_get_contents($fichier2);
 	
@@ -199,6 +216,8 @@
 
 
         mail($to,$subject,$txt,$headers); 
+        
+        include 'basDePage.php';  
         ?>      
 </body>
 </html>

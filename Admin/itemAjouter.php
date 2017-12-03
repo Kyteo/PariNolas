@@ -19,46 +19,46 @@
         $couleur = $_POST['couleur'];
         $prix = $_POST['prix'];
         $image = $_FILES["image"]["name"];
-        $stock = $_POST['stock'];
+        $quantite = $_POST['quantite'];
 
         $query = "show TABLES";
         $result = mysqli_query($db, $query); // Get table names
 
         while($row = mysqli_fetch_array($result)):    
             if ($Type == "hautsCourt"):
-                $sql = "INSERT INTO `hautsCourt`(ID,Nom,Sexe,Grandeur,Couleur,Prix,Image,Stock) VALUES ('$id','$nom','$sexe','$grandeur','$couleur','$prix','$image','$stock')"; 
+                $sql = "INSERT INTO `hautsCourt`(ID,Nom,Sexe,Grandeur,Couleur,Prix,Image,Quantite) VALUES ('$id','$nom','$sexe','$grandeur','$couleur','$prix','$image','$quantite')"; 
                 mysqli_query($db, $sql);
             endif;
             if ($Type == "hautsLong"):
-                $sql = "INSERT INTO `hautsLong`(ID,Nom,Sexe,Grandeur,Couleur,Prix,Image,Stock) VALUES ('$id','$nom','$sexe','$grandeur','$couleur','$prix','$image','$stock')"; 
+                $sql = "INSERT INTO `hautsLong`(ID,Nom,Sexe,Grandeur,Couleur,Prix,Image,Quantite) VALUES ('$id','$nom','$sexe','$grandeur','$couleur','$prix','$image','$quantite')"; 
                 mysqli_query($db, $sql);
             endif;
             if ($Type == "shorts"):
-                $sql = "INSERT INTO `shorts`(ID,Nom,Sexe,Grandeur,Couleur,Prix,Image,Stock) VALUES ('$id','$nom','$sexe','$grandeur','$couleur','$prix','$image','$stock')";
+                $sql = "INSERT INTO `shorts`(ID,Nom,Sexe,Grandeur,Couleur,Prix,Image,Quantite) VALUES ('$id','$nom','$sexe','$grandeur','$couleur','$prix','$image','$quantite')";
                 mysqli_query($db, $sql);
             endif;
             if ($Type == "pantalons"):
-                $sql = "INSERT INTO `pantalons`(ID,Nom,Sexe,Grandeur,Couleur,Prix,Image,Stock) VALUES ('$id','$nom','$sexe','$grandeur','$couleur','$prix','$image','$stock')"; 
+                $sql = "INSERT INTO `pantalons`(ID,Nom,Sexe,Grandeur,Couleur,Prix,Image,Quantite) VALUES ('$id','$nom','$sexe','$grandeur','$couleur','$prix','$image','$quantite')"; 
                 mysqli_query($db, $sql);
             endif;
             if ($Type == "vestes"):
-                $sql = "INSERT INTO `vestes`(ID,Nom,Sexe,Grandeur,Couleur,Prix,Image,Stock) VALUES ('$id','$nom','$sexe','$grandeur','$couleur','$prix','$image','$stock')"; 
+                $sql = "INSERT INTO `vestes`(ID,Nom,Sexe,Grandeur,Couleur,Prix,Image,Quantite) VALUES ('$id','$nom','$sexe','$grandeur','$couleur','$prix','$image','$quantite')"; 
                 mysqli_query($db, $sql);
             endif;
             if ($Type == "foulards"):
-                $sql = "INSERT INTO `foulards`(ID,Nom,Sexe,Grandeur,Couleur,Prix,Image,Stock) VALUES ('$id','$nom','$sexe','$grandeur','$couleur','$prix','$image','$stock')"; 
+                $sql = "INSERT INTO `foulards`(ID,Nom,Sexe,Grandeur,Couleur,Prix,Image,Quantite) VALUES ('$id','$nom','$sexe','$grandeur','$couleur','$prix','$image','$quantite')"; 
                 mysqli_query($db, $sql);
             endif;
             if ($Type == "chapeaux"):
-                $sql = "INSERT INTO `chapeaux`(ID,Nom,Sexe,Grandeur,Couleur,Prix,Image,Stock) VALUES ('$id','$nom','$sexe','$grandeur','$couleur','$prix','$image','$stock')"; 
+                $sql = "INSERT INTO `chapeaux`(ID,Nom,Sexe,Grandeur,Couleur,Prix,Image,Quantite) VALUES ('$id','$nom','$sexe','$grandeur','$couleur','$prix','$image','$quantite')"; 
                 mysqli_query($db, $sql);
             endif;
             if ($Type == "ceintures"):
-                $sql = "INSERT INTO `ceintures`(ID,Nom,Sexe,Grandeur,Couleur,Prix,Image,Stock) VALUES ('$id','$nom','$sexe','$grandeur','$couleur','$prix','$image','$stock')"; 
+                $sql = "INSERT INTO `ceintures`(ID,Nom,Sexe,Grandeur,Couleur,Prix,Image,Quantite) VALUES ('$id','$nom','$sexe','$grandeur','$couleur','$prix','$image','$quantite')"; 
                 mysqli_query($db, $sql);
             endif;
             if ($Type == "gants"):
-                $sql = "INSERT INTO `gants`(ID,Nom,Sexe,Grandeur,Couleur,Prix,Image,Stock) VALUES ('$id','$nom','$sexe','$grandeur','$couleur','$prix','$image','$stock')";
+                $sql = "INSERT INTO `gants`(ID,Nom,Sexe,Grandeur,Couleur,Prix,Image,Quantite) VALUES ('$id','$nom','$sexe','$grandeur','$couleur','$prix','$image','$quantite')";
                 mysqli_query($db, $sql);
             endif;
         endwhile;
@@ -66,10 +66,10 @@
        
               if(mysqli_query($db, $sql)){
                            echo 'Non Ajouter';
-                           header("refresh:5; url= adminAccueil.html");
+                        
                         }else{
                            echo 'Ajouter';       
-                           header("refresh:5; url= adminAccueil.html");
+                        
                         }
          
      if (move_uploaded_file($_FILES["image"]["tmp_name"], $target)){
@@ -136,14 +136,14 @@
 		<input type="radio" id="size" name="grandeur" value="m" /> Moyen
 		<input type="radio" id="size" name="grandeur" value="g" /> Grand<br><br>
                 
-                <label for="stock">Stock : </label>
-                <input type="text" id="stock" name="stock" maxlength="50" size="20" min="1" value="1"><br><br>
+                <label for="quantite">Quantité : </label>
+                <input type="text" id="quantite" name="quantite" maxlength="50" size="20" min="1" value="1"><br><br>
                 
 		<label for="image">Image : </label>
 		<input type="file" name="image" accept="image/gif, image/jpeg, image/png"><br><br><br>
 
 		<input type="submit" name="upload" value="Upload">
         </form>
-        <button onclick="window.history.back();">Retour accueil</button>
+        <button href="adminAccueil.html" >Retour accueil</button>
 </body>
 </html>

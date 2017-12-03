@@ -29,7 +29,8 @@
 	
 	 	echo '
 	 		<h4>Total avec taxes : '.$totalPrix.' $</h4>
-	 		<h3>Adresse d&apos;expédition</h3><br>
+	 		<h3>Adresse d&apos;expédition</h3>
+                        <h5>*Livraison uniquement au Québec et en Ontario</h5><br>
 
 	        <form action="confirmationPanier.php" method="post" enctype="multipart/form-data">
 		        <label for="nomClient">Nom : </label>
@@ -53,10 +54,12 @@
 		                <option value="EtasUnis">USA</option>
 		            </select><br><br>
 		        <label for="methode">Paiement : </label><br>
-				<input type="radio" id="methode" name="methode" value="mastercard"/> Mastercard <br>
-				<input type="radio" id="methode" name="methode" value="visa" /> Visa <br>
-				<input type="radio" id="methode" name="methode" value="onlineBank" /> Online Banking <br>
-		                <input type="radio" id="methode" name="methode" value="paypal" /> PayPal<br><br>
+				<input type="radio" id="methode" name="methode" value="Mastercard"/> Mastercard <br>
+				<input type="radio" id="methode" name="methode" value="Visa" /> Visa <br>
+				<input type="radio" id="methode" name="methode" value="Online Bank" /> Online Banking <br>
+		                <input type="radio" id="methode" name="methode" value="Paypal" /> PayPal<br><br>
+                        <label for="carte">No Carte : </label>
+		        <input type="text" id="carte" name="carte" size="21" value="XXXX-XXXX-XXXX-XXXX"><br><br> 
 		        <input type="hidden" value="'.$totalPrix.'" name="totalPrix">
 		        <button id="suivant" name="suivant" type="submit">Suivant</button>
 	        </form> 

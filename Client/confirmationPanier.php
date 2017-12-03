@@ -41,12 +41,12 @@
         echo $email.'</br>';
         echo $adresse.', '.$codePostal.'</br>';
         echo $province.', '.$pays.'</br>';
-        echo '---------------- </br></br>';
-        echo 'Methode de paiement: '.$methode.'</br></br>';
-        echo '---------------- </br></br>';
+        echo '---------------- </br>';
+        echo 'Methode de paiement: '.$methode.'</br>';
+        echo '---------------- </br>';
         echo '</div';
         
-        echo '<h2 class="titreConfirmation">Vos items choisis</h2>';
+        echo '<h2 class="titreConfirmation">Vos items choisis:</h2></br></br>';
     
         echo '<div id="itemsCommande">';
         

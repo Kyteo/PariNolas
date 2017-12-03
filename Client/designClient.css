@@ -206,8 +206,11 @@ th.prix, td.prix {
 th.delete {
 	color: red;
 }
-
-
+a#rupture {
+    color: red;
+    font-size: 14pt;
+    
+}
 /* Panier */
 
 h1.panier {
@@ -313,6 +316,10 @@ div#paiement>h3 {
 div#paiement>h4 {
 	font-family: Copperplate;
 	color: red;
+}
+div#paiement>h5 {
+	font-family: Lucida Calligraphy;
+	font-size: 10pt;
 }
 input.methode {
 	font-family: Century Gothic;
