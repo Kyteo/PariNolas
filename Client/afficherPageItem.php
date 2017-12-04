@@ -17,6 +17,7 @@
 	<?php 
 
 	include 'entete.php'; 
+        include 'trouverAttributsItem.php';
         
         $img = $_GET['Image'];
 	$type = $_GET['Selection'];
@@ -124,7 +125,8 @@
         $compte2 = 0;
         
         while($row3 = mysqli_fetch_array($result2)): 
-            $laGrandeur = $row3[0];
+            $laGrandeur = $row3[$compte2];
+            echo $row3[$compte2];
             $compte2 = $compte2 + 1;
         endwhile; 
         
@@ -203,25 +205,35 @@
 		';
 	echo '<label>Grandeur &nbsp&nbsp</label>';
 	echo '
-		<select name="grandeur">
-			<option value="S">Petit</option>
-			<option value="M">Medium</option>
-			<option value="L">Large</option>
-	</select><br><br>
-	';
+		<select name="grandeur">';
+                        for ($i = 1; $i <= $compte2; $i++){
+                                echo "<option value='$laGrandeur'>$laGrandeur</option>";
+                            }
+                
+	echo '</select><br><br>';
+	
 	echo '<label>Quantité &nbsp&nbsp&nbsp&nbsp</label>';
 	echo '
 		<select name="quantite">';
-                        for ($i = 1; $i <= $laQuantite; $i++){
-                            echo "<option value='$i'>$i</option>";
+        
+                        //Affiche la quantite restante
+                        if ($laQuantite >= 0 && $laQuantite <= 5)  {
+                                for ($i = 1; $i <= $laQuantite; $i++){
+                                    echo "<option value='$i'>$i</option>";
+                                }
+                        } else {
+                            
+                        //Affiche une quantite maximum de 5
+                            for ($i = 1; $i <= 5; $i++){
+                                echo "<option value='$i'>$i</option>";
+                            }
                         }
                        
 	echo	'</select>';
          
-        if ($laQuantite == 0)  {
-         
+        //Affiche que l'item est en rupture de stock
+        if ($laQuantite <= 0)  {
             echo '<a id="rupture"> *En rupture de stock</a>';
-            
         }
 
 

@@ -11,10 +11,11 @@
 </head>
 <body>
 <?php
-        
+        //Inclusion de d'autres pages
 	include 'entete.php'; 
         include 'trouverAttributsItem.php';
         
+        //Titre de la page
         echo '
             <br>
             <div id="confirmCommande">
@@ -22,6 +23,7 @@
             <br>
 	';
         
+        // Connexion a la base de donnees
         $hostname = 'localhost';
         $username = 'root';
         $password = '';
@@ -29,6 +31,8 @@
 
         $connect = mysqli_connect($hostname, $username, $password, $databaseName);
 
+        
+        //Declaration des variables
         $nomClient = $_POST['nom'];
         $prenomClient = $_POST['prenom'];
         $emailClient = $_POST['email'];
@@ -38,8 +42,12 @@
         $pays = $_POST['pays'];
         $methode = $_POST['methode'];
         
+        
+        //Ouverture du panier, mode lecture
         $fichier = fopen("panier.txt", "r");
        
+        
+        //Affichage du nom, adresse et paiement
         echo '<div id="adresseExpedition">';
 	echo '<h2 class="titreConfirmation">Adresse d&apos;expédition</h2>';
         echo $nomClient.', '.$prenomClient.'</br>';
@@ -51,6 +59,8 @@
         echo '---------------- </br>';
         echo '</div';
         
+        
+        //Affichage des items 
         echo '<h2 class="titreConfirmation">Vos items choisis:</h2></br></br>';
     
         echo '<div id="itemsCommande">';
@@ -149,12 +159,12 @@
         date_default_timezone_set('America/Montreal');
         $date = date('Y-m-d_H-i-s');
        
-        if(!file_exists("../Client/commandes/Commandes-'.$date.'.txt")) {
-		$fichier = fopen("../Client/commandes/Commandes-'.$date.'.txt", "w");
+        if(!file_exists("../Client/commandes/Commandes_$date.txt")) {
+		$fichier = fopen("../Client/commandes/Commandes_$date.txt", "w");
 	}
 	
         
-        $fichier2 = "../Client/commandes/Commandes-'.$date.'.txt";
+        $fichier2 = "../Client/commandes/Commandes_$date.txt";
         
         $courant = file_get_contents($fichier2);
 	
@@ -215,7 +225,17 @@
         $headers = "From: nicolasbreant@hotmail.com";
 
 
-        mail($to,$subject,$txt,$headers); 
+       
+        
+        if(mail($to,$subject,$txt,$headers)){
+                           echo 'Non Ajouter';
+                        
+                        }else{
+                           echo 'Ajouter';       
+                        
+                        }
+        
+        
         
         include 'basDePage.php';  
         ?>      

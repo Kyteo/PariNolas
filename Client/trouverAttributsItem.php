@@ -100,5 +100,22 @@ function trouverCouleur($couleurAVerifier) {
 	
 }
 
+function trouverGrandeur($grandeurAVerifier) {
+	$grandeur = "";
+	switch($grandeurAVerifier) {
+		case 's': 
+			$grandeur = 'Petit';
+			break;
+		case 'm':
+			$grandeur = 'Medium';
+			break;
+		case 'l':
+			$grandeur = 'Large';
+			break;
+		
+	}
+	return $grandeur;
+	
+}
 
 ?>
