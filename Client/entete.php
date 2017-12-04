@@ -9,7 +9,7 @@ echo '
 		</div>		
 		
 		<div class="gauche">
-			<img href="accueilClient.php"><img id="logo" src="images/parinolas4.png" alt="Logo PariNolas"></a>
+			<a href="accueilClient.php"><img id="logo" src="images/parinolas2.png" alt="Logo PariNolas"></a>
 		</div>	
 	</div entete>
 	

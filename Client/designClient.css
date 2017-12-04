@@ -109,6 +109,53 @@ hr.menuBas {
 
 div.accueil {
 	text-align: center;
+	background-color: black;
+}
+#lignes {
+	background-color: black;
+	height: 50px;
+	width: 100em;
+}
+#marquee {
+	margin: 0em, 10em;
+	text-align: center;
+}
+#titreGauche {
+	float: left;
+	width: 50em;
+	font-family: AppleGothic, Lucida Calligraphy;
+}
+#titreDroite {
+	float: right;
+	width: 20em;
+	color: green;
+	padding-top: 5px;
+	font-family: Libian SC Regular, Copperplate;
+}
+#inspire {
+	color: white;
+	text-align: center;
+}
+#party {
+	background-image: url("images/party.jpg");
+	background-repeat: round;
+	text-align: center;
+	padding-top: 22em;
+	padding-bottom: 3em;
+}
+#party>h3 {
+	color: white;
+	font-family: AppleGothic, Century Gothic;
+	background-color: black;
+	
+}
+div#pageAccueil {
+	width: 1430px;
+	height: 750px;
+}
+div.infolettre {
+	color: #af859e;
+	font-family: AppleGothic;
 }
 
 
@@ -127,6 +174,13 @@ div.menuHomme,div.menuFemme {
 .menuFemme>a {
 	font-family: Papyrus;
 	font-size: 14px;
+}
+select.type {
+	background-color: white;
+	color: black;
+	padding: 5px 12px;
+	font-family: Copperplate;
+	margin-top: 1em;
 }
 
 #femme {
@@ -206,17 +260,17 @@ th.prix, td.prix {
 th.delete {
 	color: red;
 }
-a#rupture {
-    color: red;
-    font-size: 14pt;
-    
-}
+
+
 /* Panier */
 
 h1.panier {
-	font-family: Harrington;
+	font-family: Matura MT Script Capitals;
 	margin-left: 20%;
 	color: #939171;
+}
+div.panier {
+	background-color: black;
 }
 table.panierItem {
 	width: 800px;
@@ -236,7 +290,7 @@ img#delete {
 form#commander {
 	text-align: center;
 }
-button#caisse, button#suivant, button#delete {
+button#caisse, button#suivant, button.infolettre, input#montrer {
 	background-color: darkblue;
 	color: white;
 	padding: 10px 24px;
@@ -245,22 +299,22 @@ button#caisse, button#suivant, button#delete {
 }
 
 
-/* Page contact */
+/* Contact */
 
 div.contact {
 	text-align: center;
 	float: left;
 	width: 40%;
 	margin: 2em;
-	margin-top: 6em;
+	
 }
 address#adresse {
 	font-size: 20px;
-	color: #7a7d82;
+	color: black;
 	font-family: Eurostile;
 }
 address>h4 {
-	color: white;
+	color: black;
 	font-style: normal;
 	font-family: Kristen ITC, Copperplate;
 }
@@ -289,8 +343,12 @@ form#retour>label {
 	font-family: Copperplate;
 }
 div.haut {
-	width: 1350px;
+	width: 1400px;
 	height: 750px;
+	background-image: url("images/chapeau.png");
+	background-repeat: no-repeat;
+	background-repeat: round;
+	margin: 3em 0em;
 }
 
 
@@ -316,10 +374,6 @@ div#paiement>h3 {
 div#paiement>h4 {
 	font-family: Copperplate;
 	color: red;
-}
-div#paiement>h5 {
-	font-family: Lucida Calligraphy;
-	font-size: 10pt;
 }
 input.methode {
 	font-family: Century Gothic;
@@ -358,6 +412,10 @@ h1.confirmation {
 
 div.bas {
 	text-align: center;
+	color: #a5780e;
 	font-family: Copperplate;
 	width: 100%;
+}
+.bas>p {
+	color: white;
 }
