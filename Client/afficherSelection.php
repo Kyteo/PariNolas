@@ -109,8 +109,6 @@ return $result1;
 									<input type="hidden" value="'.$row['ID'].'" name="ID">
 									<input type="hidden" value="'.$row['Nom'].'" name="Nom">
 									<input type="hidden" value="'.$row['Sexe'].'" name="Sexe">
-									<input type="hidden" value="'.$row['Grandeur'].'" name="Grandeur">
-									<input type="hidden" value="'.$row['Couleur'].'" name="Couleur">
 									<input type="hidden" value="'.$row['Prix'].'" name="Prix">
 									<input type="hidden" value="'.$row['Image'].'" name="Image">
 						

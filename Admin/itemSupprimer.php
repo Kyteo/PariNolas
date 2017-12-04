@@ -104,11 +104,11 @@ endwhile;
 
 while($row2 = mysqli_fetch_array($result2)): 
     if ($row2[0] == $ID):
-        if ($Type == "hautCourt"):
-            $sql = "DELETE FROM `hauts à manches courtes` WHERE ID LIKE '$ID'";
+        if ($Type == "hautsCourt"):
+            $sql = "DELETE FROM `hautsCourt` WHERE ID LIKE '$ID'";
         endif;
         if ($Type == "hautsLong"):
-            $sql = "DELETE FROM `hauts à manches longues` WHERE ID LIKE '$ID'";
+            $sql = "DELETE FROM `hautsLong` WHERE ID LIKE '$ID'";
         endif;
         if ($Type == "shorts"):
             $sql = "DELETE FROM `shorts` WHERE ID LIKE '$ID'";

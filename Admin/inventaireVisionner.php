@@ -14,39 +14,39 @@ $result = mysqli_query($connect, $query); // Get table names
 
 while($row = mysqli_fetch_array($result)):    
     if ($Type == "hc"):
-       $query = "SELECT * FROM `hautsCourt`"; 
+       $query = "SELECT * FROM `hautsCourt` WHERE ID LIKE '$ID'"; 
        $result1 = mysqli_query($connect, $query);
     endif;
     if ($Type == "hl"):
-       $query = "SELECT * FROM `hautsLong`"; 
+       $query = "SELECT * FROM `hautsLong` WHERE ID LIKE '$ID'"; 
        $result1 = mysqli_query($connect, $query);
     endif;
     if ($Type == "sh"):
-       $query = "SELECT * FROM `shorts`"; 
+       $query = "SELECT * FROM `shorts` WHERE ID LIKE '$ID'"; 
        $result1 = mysqli_query($connect, $query);
     endif;
     if ($Type == "pa"):
-       $query = "SELECT * FROM `pantalons`"; 
+       $query = "SELECT * FROM `pantalons` WHERE ID LIKE '$ID'"; 
        $result1 = mysqli_query($connect, $query);
     endif;
     if ($Type == "ve"):
-       $query = "SELECT * FROM `vestes`"; 
+       $query = "SELECT * FROM `vestes` WHERE ID LIKE '$ID'"; 
        $result1 = mysqli_query($connect, $query);
     endif;
     if ($Type == "fo"):
-       $query = "SELECT * FROM `foulards`"; 
+       $query = "SELECT * FROM `foulards` WHERE ID LIKE '$ID'"; 
        $result1 = mysqli_query($connect, $query);
     endif;
     if ($Type == "ch"):
-       $query = "SELECT * FROM `chapeaux`"; 
+       $query = "SELECT * FROM `chapeaux` WHERE ID LIKE '$ID'"; 
        $result1 = mysqli_query($connect, $query);
     endif;
     if ($Type == "ce"):
-       $query = "SELECT * FROM `ceintures`"; 
+       $query = "SELECT * FROM `ceintures` WHERE ID LIKE '$ID'"; 
        $result1 = mysqli_query($connect, $query);
     endif;
     if ($Type == "ga"):
-       $query = "SELECT * FROM `gants`"; 
+       $query = "SELECT * FROM `gants` WHERE ID LIKE '$ID'"; 
        $result1 = mysqli_query($connect, $query);
     endif;   
 endwhile;?> 
@@ -79,8 +79,6 @@ and open the template in the editor.
                     <td>ID</td>     
                     <td>Nom</td>
                     <td>Sexe</td>
-                    <td>Grandeur</td>
-                    <td>Couleur</td>
                     <td>Prix</td>  
                     <td>Image</td>  
                     <td>Stock</td> 
@@ -93,10 +91,8 @@ and open the template in the editor.
                     <td><?php echo $row1[1];?></td>
                     <td><?php echo $row1[2];?></td>
                     <td><?php echo $row1[3];?></td>
-                    <td><?php echo $row1[4];?></td>
-                    <td><?php echo $row1[5];?></td>
                     <td><?php echo '<img  width="50px" src="../Admin/Images/'.$row1['Image'].'">';?></td>
-                    <td><?php echo $row1[7];?></td>
+                    <td><?php echo $row1[5];?></td>
                 </tr> 
                 <?php endwhile;?> 
             </table> 

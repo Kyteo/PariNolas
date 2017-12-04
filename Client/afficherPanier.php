@@ -31,6 +31,15 @@ if(isset($_POST["delete"])){
 	include 'entete.php'; 
 	include 'trouverAttributsItem.php';
 	$fichier = fopen("panier.txt", "r");
+        
+        
+        $hostname = 'localhost';
+        $username = 'root';
+        $password = '';
+        $databaseName = 'parinolas';
+
+        $connect = mysqli_connect($hostname, $username, $password, $databaseName);
+    
 	$sous_total_prix = 0;
         $row = 0;
 	echo '
@@ -52,7 +61,7 @@ if(isset($_POST["delete"])){
 		echo '
 			<table border="1" class="panierItem">
 				<tr>
-					<th> ITEM # </th>
+					<th> Article </th>
 					<th> COULEUR </th>
 					<th> GRANDEUR </th>
 					<th> QTE </th>
@@ -66,15 +75,61 @@ if(isset($_POST["delete"])){
 		$id = $tab_ligne_lue[2];
 		$prix = $tab_ligne_lue[4];
 		$sous_total_prix += $prix;
-		$couleur = trouverCouleur($tab_ligne_lue[5]);
+		$couleur = $tab_ligne_lue[5];
 		$grandeur = $tab_ligne_lue[6];
 		$quantite = $tab_ligne_lue[7];
-               
-		echo '<td>' . $id . '</td>';
+                echo $type;
+                //Trouver l'image
+                $query = "show TABLES";
+                $result = mysqli_query($connect, $query); // Get table names
+
+                while($row = mysqli_fetch_array($result)):    
+                    if ($type == "hc"):
+                        $query1 = "SELECT Image FROM `hautsCourt` WHERE ID LIKE '$id'"; 
+                        $result1 = mysqli_query($connect, $query1);
+                    endif;
+                    if ($type == "hl"):
+                        $query1 = "SELECT Image FROM `hautsLong` WHERE ID LIKE '$id'"; 
+                        $result1 = mysqli_query($connect, $query1);
+                    endif;
+                    if ($type == "sh"):
+                        $query1 = "SELECT Image FROM `shorts` WHERE ID LIKE '$id'"; 
+                        $result1 = mysqli_query($connect, $query1);
+                    endif;
+                    if ($type == "pa"):
+                        $query1 = "SELECT Image FROM `pantalons` WHERE ID LIKE '$id'"; 
+                        $result1 = mysqli_query($connect, $query1);
+                    endif;
+                    if ($type == "ve"):
+                        $query1 = "SELECT Image FROM `vestes` WHERE ID LIKE '$id'"; 
+                        $result1 = mysqli_query($connect, $query1);
+                    endif;
+                    if ($type == "fo"):
+                        $query1 = "SELECT Image FROM `foulards` WHERE ID LIKE '$id'"; 
+                        $result1 = mysqli_query($connect, $query1);
+                    endif;
+                    if ($type == "ch"):
+                        $query1 = "SELECT Image FROM `chapeaux` WHERE ID LIKE '$id'"; 
+                        $result1 = mysqli_query($connect, $query1);
+                    endif;
+                    if ($type == "ce"):
+                        $query1 = "SELECT Image FROM `ceintures` WHERE ID LIKE '$id'"; 
+                        $result1 = mysqli_query($connect, $query1);
+                    endif;
+                    if ($type == "ga"):
+                        $query1 = "SELECT Image FROM `gants` WHERE ID LIKE '$id'"; 
+                        $result1 = mysqli_query($connect, $query1);
+                    endif;   
+            endwhile;
+                
+                
+               while($row1 = mysqli_fetch_array($result1)):
+                   echo '<td><img  width="100px" src="../Admin/Images/'.$row1['Image'].'"></td>';
+               endwhile;
 		echo '<td>' . $couleur . '</td>';
 		echo '<td>' . $grandeur . '</td>';
 		echo '<td>' . $quantite . '</td>';
-		echo '<td>' . $prix . ' </td>';
+		echo '<td>' . $prix . '$ </td>';
 		// Ajouter la fonction supprimer item
                 
                 

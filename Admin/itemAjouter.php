@@ -15,8 +15,6 @@
         $id = $_POST['id'];
         $nom = $_POST['nom'];
         $sexe = $_POST['sexe'];
-        $grandeur = $_POST['grandeur'];
-        $couleur = $_POST['couleur'];
         $prix = $_POST['prix'];
         $image = $_FILES["image"]["name"];
         $quantite = $_POST['quantite'];
@@ -26,39 +24,39 @@
 
         while($row = mysqli_fetch_array($result)):    
             if ($Type == "hautsCourt"):
-                $sql = "INSERT INTO `hautsCourt`(ID,Nom,Sexe,Grandeur,Couleur,Prix,Image,Quantite) VALUES ('$id','$nom','$sexe','$grandeur','$couleur','$prix','$image','$quantite')"; 
+                $sql = "INSERT INTO `hautsCourt`(ID,Nom,Sexe,Prix,Image,Quantite) VALUES ('$id','$nom','$sexe','$prix','$image','$quantite')"; 
                 mysqli_query($db, $sql);
             endif;
             if ($Type == "hautsLong"):
-                $sql = "INSERT INTO `hautsLong`(ID,Nom,Sexe,Grandeur,Couleur,Prix,Image,Quantite) VALUES ('$id','$nom','$sexe','$grandeur','$couleur','$prix','$image','$quantite')"; 
+                $sql = "INSERT INTO `hautsLong`(ID,Nom,Sexe,Prix,Image,Quantite) VALUES ('$id','$nom','$sexe','$prix','$image','$quantite')"; 
                 mysqli_query($db, $sql);
             endif;
             if ($Type == "shorts"):
-                $sql = "INSERT INTO `shorts`(ID,Nom,Sexe,Grandeur,Couleur,Prix,Image,Quantite) VALUES ('$id','$nom','$sexe','$grandeur','$couleur','$prix','$image','$quantite')";
+                $sql = "INSERT INTO `shorts`(ID,Nom,Sexe,Prix,Image,Quantite) VALUES ('$id','$nom','$sexe','$prix','$image','$quantite')";
                 mysqli_query($db, $sql);
             endif;
             if ($Type == "pantalons"):
-                $sql = "INSERT INTO `pantalons`(ID,Nom,Sexe,Grandeur,Couleur,Prix,Image,Quantite) VALUES ('$id','$nom','$sexe','$grandeur','$couleur','$prix','$image','$quantite')"; 
+                $sql = "INSERT INTO `pantalons`(ID,Nom,Sexe,Prix,Image,Quantite) VALUES ('$id','$nom','$sexe','$prix','$image','$quantite')"; 
                 mysqli_query($db, $sql);
             endif;
             if ($Type == "vestes"):
-                $sql = "INSERT INTO `vestes`(ID,Nom,Sexe,Grandeur,Couleur,Prix,Image,Quantite) VALUES ('$id','$nom','$sexe','$grandeur','$couleur','$prix','$image','$quantite')"; 
+                $sql = "INSERT INTO `vestes`(ID,Nom,Sexe,Prix,Image,Quantite) VALUES ('$id','$nom','$sexe','$prix','$image','$quantite')"; 
                 mysqli_query($db, $sql);
             endif;
             if ($Type == "foulards"):
-                $sql = "INSERT INTO `foulards`(ID,Nom,Sexe,Grandeur,Couleur,Prix,Image,Quantite) VALUES ('$id','$nom','$sexe','$grandeur','$couleur','$prix','$image','$quantite')"; 
+                $sql = "INSERT INTO `foulards`(ID,Nom,Sexe,Prix,Image,Quantite) VALUES ('$id','$nom','$sexe','$prix','$image','$quantite')"; 
                 mysqli_query($db, $sql);
             endif;
             if ($Type == "chapeaux"):
-                $sql = "INSERT INTO `chapeaux`(ID,Nom,Sexe,Grandeur,Couleur,Prix,Image,Quantite) VALUES ('$id','$nom','$sexe','$grandeur','$couleur','$prix','$image','$quantite')"; 
+                $sql = "INSERT INTO `chapeaux`(ID,Nom,Sexe,Prix,Image,Quantite) VALUES ('$id','$nom','$sexe','$prix','$image','$quantite')"; 
                 mysqli_query($db, $sql);
             endif;
             if ($Type == "ceintures"):
-                $sql = "INSERT INTO `ceintures`(ID,Nom,Sexe,Grandeur,Couleur,Prix,Image,Quantite) VALUES ('$id','$nom','$sexe','$grandeur','$couleur','$prix','$image','$quantite')"; 
+                $sql = "INSERT INTO `ceintures`(ID,Nom,Sexe,Prix,Image,Quantite) VALUES ('$id','$nom','$sexe','$prix','$image','$quantite')"; 
                 mysqli_query($db, $sql);
             endif;
             if ($Type == "gants"):
-                $sql = "INSERT INTO `gants`(ID,Nom,Sexe,Grandeur,Couleur,Prix,Image,Quantite) VALUES ('$id','$nom','$sexe','$grandeur','$couleur','$prix','$image','$quantite')";
+                $sql = "INSERT INTO `gants`(ID,Nom,Sexe,Prix,Image,Quantite) VALUES ('$id','$nom','$sexe','$prix','$image','$quantite')";
                 mysqli_query($db, $sql);
             endif;
         endwhile;
@@ -121,21 +119,7 @@
 		</select><br><br>
 		<label for="prix">Prix : </label>
 		<input type="text" id="prix" name="prix" maxlength="8" size="8"><br><br>
-		<label for="coul">Couleur : </label>
-		<select name="couleur" id="coul">
-			<option value="noir">Noir</option>
-			<option value="bleu">Bleu</option>
-			<option value="rouge">Rouge</option>
-			<option value="rose">Rose</option>
-			<option value="jaune">Jaune</option>
-			<option value="blanc">Blanc</option>
-			<option value="autre">Autre</option>			
-		</select><br><br>
-		<label for="size">Grandeur : </label>
-		<input type="radio" id="size" name="grandeur" value="p" checked="checked" /> Petit
-		<input type="radio" id="size" name="grandeur" value="m" /> Moyen
-		<input type="radio" id="size" name="grandeur" value="g" /> Grand<br><br>
-                
+		               
                 <label for="quantite">Quantité : </label>
                 <input type="text" id="quantite" name="quantite" maxlength="50" size="20" min="1" value="1"><br><br>
                 
@@ -144,6 +128,6 @@
 
 		<input type="submit" name="upload" value="Upload">
         </form>
-        <button href="adminAccueil.html" >Retour accueil</button>
+        <a  href="adminAccueil.html"><button>Retour accueil</button></a>
 </body>
 </html>

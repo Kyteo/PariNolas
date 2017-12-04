@@ -79,8 +79,6 @@ and open the template in the editor.
                     <td>ID</td>     
                     <td>Nom</td>
                     <td>Sexe</td>
-                    <td>Grandeur</td>
-                    <td>Couleur</td>
                     <td>Prix</td>  
                     <td>Image</td>  
                 </tr>
@@ -93,8 +91,6 @@ and open the template in the editor.
                                 <td><?php echo $row1[2];?></td>
                                 <td><?php echo $row1[3];?></td>
                                 <td><?php echo $row1[4];?></td>
-                                <td><?php echo $row1[5];?></td>
-                                <td><?php echo $row1[6];?></td>
                             </tr> 
                         <?php endif;
                  endwhile;?> 

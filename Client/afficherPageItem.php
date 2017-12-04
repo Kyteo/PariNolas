@@ -24,7 +24,6 @@
 	$id = $_GET['ID'];
 	$nom = $_GET['Nom'];
 	$sexe = $_GET['Sexe'];
-	$grandeur = $_GET['Grandeur'];
 	$prix = $_GET['Prix'];
         
         $hostname = 'localhost';
@@ -37,144 +36,52 @@
         $query = "show TABLES";
         $result = mysqli_query($connect, $query); // Get table names
             
-        //Pour Couleurs
-        while($row = mysqli_fetch_array($result)):    
-            if ($type == "hc"):
-                $query1 = "SELECT Couleur FROM `hautsCourt` WHERE ID LIKE '$id' AND NOM LIKE '$nom' AND SEXE LIKE '$sexe'"; 
-                $result1 = mysqli_query($connect, $query1);
-            endif;
-            if ($type == "hl"):
-                $query1 = "SELECT Couleur FROM `hautsLong` WHERE ID LIKE '$id' AND NOM LIKE '$nom' AND SEXE LIKE '$sexe'";  
-                $result1 = mysqli_query($connect, $query1);
-            endif;
-            if ($type == "sh"):
-                $query1 = "SELECT Couleur FROM `shorts` WHERE ID LIKE '$id' AND NOM LIKE '$nom' AND SEXE LIKE '$sexe'";  
-                $result1 = mysqli_query($connect, $query1);
-            endif;
-            if ($type == "pa"):
-                $query1 = "SELECT Couleur FROM `pantalons` WHERE ID LIKE '$id' AND NOM LIKE '$nom' AND SEXE LIKE '$sexe'"; 
-                $result1 = mysqli_query($connect, $query1);
-            endif;
-            if ($type == "ve"):
-                $query1 = "SELECT Couleur FROM `vestes` WHERE ID LIKE '$id' AND NOM LIKE '$nom' AND SEXE LIKE '$sexe'";  
-                $result1 = mysqli_query($connect, $query1);
-            endif;
-            if ($type == "fo"):
-                $query1 = "SELECT Couleur FROM `foulards` WHERE ID LIKE '$id' AND NOM LIKE '$nom' AND SEXE LIKE '$sexe'"; 
-                $result1 = mysqli_query($connect, $query1);
-            endif;
-            if ($type == "ch"):
-                $query1 = "SELECT Couleur FROM `chapeaux` WHERE ID LIKE '$id' AND NOM LIKE '$nom' AND SEXE LIKE '$sexe'";  
-                $result1 = mysqli_query($connect, $query1);
-            endif;
-            if ($type == "ce"):
-                $query1 = "SELECT Couleur FROM `ceintures` WHERE ID LIKE '$id' AND NOM LIKE '$nom' AND SEXE LIKE '$sexe'";               
-                $result1 = mysqli_query($connect, $query1);
-            endif;
-            if ($type == "ga"):
-                $query1 = "SELECT Couleur FROM `gants` WHERE ID LIKE '$id' AND NOM LIKE '$nom' AND SEXE LIKE '$sexe'"; 
-                $result1 = mysqli_query($connect, $query1);
-            endif;
-        endwhile;
-        
-        
-        
-        //Pour Grandeur
-        $query = "show TABLES";
-        $result = mysqli_query($connect, $query);
-        
-        while($row2 = mysqli_fetch_array($result)):    
-            if ($type == "hc"):
-                $query2 = "SELECT Grandeur FROM `hautsCourt` WHERE ID LIKE '$id' AND NOM LIKE '$nom' AND SEXE LIKE '$sexe'"; 
-                $result2 = mysqli_query($connect, $query2);
-            endif;
-            if ($type == "hl"):
-                $query2 = "SELECT Grandeur FROM `hautsLong` WHERE ID LIKE '$id' AND NOM LIKE '$nom' AND SEXE LIKE '$sexe'";  
-                $result2 = mysqli_query($connect, $query2);
-            endif;
-            if ($type == "sh"):
-                $query2 = "SELECT Grandeur FROM `shorts` WHERE ID LIKE '$id' AND NOM LIKE '$nom' AND SEXE LIKE '$sexe'";  
-                $result2 = mysqli_query($connect, $query2);
-            endif;
-            if ($type == "pa"):
-                $query2 = "SELECT Grandeur FROM `pantalons` WHERE ID LIKE '$id' AND NOM LIKE '$nom' AND SEXE LIKE '$sexe'"; 
-                $result2 = mysqli_query($connect, $query2);
-            endif;
-            if ($type == "ve"):
-                $query2 = "SELECT Grandeur FROM `vestes` WHERE ID LIKE '$id' AND NOM LIKE '$nom' AND SEXE LIKE '$sexe'";  
-                $result2 = mysqli_query($connect, $query2);
-            endif;
-            if ($type == "fo"):
-                $query2 = "SELECT Grandeur FROM `foulards` WHERE ID LIKE '$id' AND NOM LIKE '$nom' AND SEXE LIKE '$sexe'"; 
-                $result2 = mysqli_query($connect, $query2);
-            endif;
-            if ($type == "ch"):
-                $query2 = "SELECT Grandeur FROM `chapeaux` WHERE ID LIKE '$id' AND NOM LIKE '$nom' AND SEXE LIKE '$sexe'";  
-                $result2 = mysqli_query($connect, $query2);
-            endif;
-            if ($type == "ce"):
-                $query2 = "SELECT Grandeur FROM `ceintures` WHERE ID LIKE '$id' AND NOM LIKE '$nom' AND SEXE LIKE '$sexe'";               
-                $result2 = mysqli_query($connect, $query2);
-            endif;
-            if ($type == "ga"):
-                $query2 = "SELECT Grandeur FROM `gants` WHERE ID LIKE '$id' AND NOM LIKE '$nom' AND SEXE LIKE '$sexe'"; 
-                $result2 = mysqli_query($connect, $query2);
-            endif;
-        endwhile;
-        
-        $compte2 = 0;
-        
-        while($row3 = mysqli_fetch_array($result2)): 
-            $laGrandeur = $row3[$compte2];
-            echo $row3[$compte2];
-            $compte2 = $compte2 + 1;
-        endwhile; 
-        
+       
         //Pour Quantite
         $query = "show TABLES";
         $result = mysqli_query($connect, $query);            
                     
-        while($row4 = mysqli_fetch_array($result)):    
+        while($row = mysqli_fetch_array($result)):    
             if ($type == "hc"):
-                $query3 = "SELECT Quantite FROM `hautsCourt` WHERE ID LIKE '$id' AND NOM LIKE '$nom' AND SEXE LIKE '$sexe'"; 
-                $result3 = mysqli_query($connect, $query3);
+                $query1 = "SELECT Quantite FROM `hautsCourt` WHERE ID LIKE '$id' AND NOM LIKE '$nom' AND SEXE LIKE '$sexe'"; 
+                $result1 = mysqli_query($connect, $query1);
             endif;
             if ($type == "hl"):
-                $query3 = "SELECT Quantite FROM `hautsLong` WHERE ID LIKE '$id' AND NOM LIKE '$nom' AND SEXE LIKE '$sexe'";  
-                $result3 = mysqli_query($connect, $query3);
+                $query1 = "SELECT Quantite FROM `hautsLong` WHERE ID LIKE '$id' AND NOM LIKE '$nom' AND SEXE LIKE '$sexe'";  
+                $result1 = mysqli_query($connect, $query1);
             endif;
             if ($type == "sh"):
-                $query3 = "SELECT Quantite FROM `shorts` WHERE ID LIKE '$id' AND NOM LIKE '$nom' AND SEXE LIKE '$sexe'";  
-                $result3 = mysqli_query($connect, $query3);
+                $query1 = "SELECT Quantite FROM `shorts` WHERE ID LIKE '$id' AND NOM LIKE '$nom' AND SEXE LIKE '$sexe'";  
+                $result1 = mysqli_query($connect, $query1);
             endif;
             if ($type == "pa"):
-                $query3 = "SELECT Quantite FROM `pantalons` WHERE ID LIKE '$id' AND NOM LIKE '$nom' AND SEXE LIKE '$sexe'"; 
-                $result3 = mysqli_query($connect, $query3);
+                $query1 = "SELECT Quantite FROM `pantalons` WHERE ID LIKE '$id' AND NOM LIKE '$nom' AND SEXE LIKE '$sexe'"; 
+                $result1 = mysqli_query($connect, $query1);
             endif;
             if ($type == "ve"):
-                $query3 = "SELECT Quantite FROM `vestes` WHERE ID LIKE '$id' AND NOM LIKE '$nom' AND SEXE LIKE '$sexe'";  
-                $result3 = mysqli_query($connect, $query3);
+                $query1 = "SELECT Quantite FROM `vestes` WHERE ID LIKE '$id' AND NOM LIKE '$nom' AND SEXE LIKE '$sexe'";  
+                $result1 = mysqli_query($connect, $query1);
             endif;
             if ($type == "fo"):
-                $query3 = "SELECT Quantite FROM `foulards` WHERE ID LIKE '$id' AND NOM LIKE '$nom' AND SEXE LIKE '$sexe'"; 
-                $result3 = mysqli_query($connect, $query3);
+                $query1 = "SELECT Quantite FROM `foulards` WHERE ID LIKE '$id' AND NOM LIKE '$nom' AND SEXE LIKE '$sexe'"; 
+                $result1 = mysqli_query($connect, $query1);
             endif;
             if ($type == "ch"):
-                $query3 = "SELECT Quantite FROM `chapeaux` WHERE ID LIKE '$id' AND NOM LIKE '$nom' AND SEXE LIKE '$sexe'";  
-                $result3 = mysqli_query($connect, $query3);
+                $query1 = "SELECT Quantite FROM `chapeaux` WHERE ID LIKE '$id' AND NOM LIKE '$nom' AND SEXE LIKE '$sexe'";  
+                $result1 = mysqli_query($connect, $query1);
             endif;
             if ($type == "ce"):
-                $query3 = "SELECT Quantite FROM `ceintures` WHERE ID LIKE '$id' AND NOM LIKE '$nom' AND SEXE LIKE '$sexe'";               
-                $result3 = mysqli_query($connect, $query3);
+                $query1 = "SELECT Quantite FROM `ceintures` WHERE ID LIKE '$id' AND NOM LIKE '$nom' AND SEXE LIKE '$sexe'";               
+                $result1 = mysqli_query($connect, $query1);
             endif;
             if ($type == "ga"):
-                $query3 = "SELECT Quantite FROM `gants` WHERE ID LIKE '$id' AND NOM LIKE '$nom' AND SEXE LIKE '$sexe'"; 
-                $result3 = mysqli_query($connect, $query3);
+                $query1 = "SELECT Quantite FROM `gants` WHERE ID LIKE '$id' AND NOM LIKE '$nom' AND SEXE LIKE '$sexe'"; 
+                $result1 = mysqli_query($connect, $query1);
             endif;
         endwhile;
  
-        while($row5 = mysqli_fetch_array($result3)): 
-             $laQuantite = $row5[0];
+        while($row1 = mysqli_fetch_array($result1)): 
+             $laQuantite = $row1[0];
 		     
         endwhile;   
 	
@@ -194,23 +101,22 @@
 	// Changer code pour afficher juste les couleurs disponibles
 	echo '
 		<select name="couleur"> 
-                     <option value="nr">Noir</option>
-			<option value="rg">Rouge</option>
-			<option value="be">Bleu</option>
-			<option value="jn">Jaune</option>
-			<option value="ba">Blanc</option>
-			<option value="rs">Rose</option>
-			<option value="au">Autre</option>
+                     <option value="Noir">Noir</option>
+			<option value="Rouge">Rouge</option>
+			<option value="Bleu">Bleu</option>
+			<option value="Jaune">Jaune</option>
+			<option value="Blanc">Blanc</option>
+			<option value="Rose">Rose</option>
+			<option value="Autres">Autres</option>
                 </select><br><br>
 		';
 	echo '<label>Grandeur &nbsp&nbsp</label>';
 	echo '
-		<select name="grandeur">';
-                        for ($i = 1; $i <= $compte2; $i++){
-                                echo "<option value='$laGrandeur'>$laGrandeur</option>";
-                            }
-                
-	echo '</select><br><br>';
+		<select name="grandeur">
+                       <option value="Petit">Petit</option>
+			<option value="Medium">Medium</option>
+			<option value="Large">Large</option>
+                </select><br><br>';
 	
 	echo '<label>Quantité &nbsp&nbsp&nbsp&nbsp</label>';
 	echo '

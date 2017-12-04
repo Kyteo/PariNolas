@@ -19,9 +19,7 @@
         echo '
             <br>
             <div id="confirmCommande">
-		<h1 class="confirmation">Confirmation de l achat</h1>
-            <br>
-	';
+		<h1 class="confirmation">Confirmation de l achat</h1>';
         
         // Connexion a la base de donnees
         $hostname = 'localhost';
@@ -35,11 +33,11 @@
         //Declaration des variables
         $nomClient = $_POST['nom'];
         $prenomClient = $_POST['prenom'];
+        $telephone = $_POST['telephone'];
         $emailClient = $_POST['email'];
         $adresseClient = $_POST['adresse'];
         $codePostal = $_POST['codePostal'];
         $province = $_POST['province'];
-        $pays = $_POST['pays'];
         $methode = $_POST['methode'];
         
         
@@ -51,17 +49,18 @@
         echo '<div id="adresseExpedition">';
 	echo '<h2 class="titreConfirmation">Adresse d&apos;expédition</h2>';
         echo $nomClient.', '.$prenomClient.'</br>';
+        echo $telephone.'</br>';
         echo $emailClient.'</br>';
         echo $adresseClient.', '.$codePostal.'</br>';
-        echo $province.', '.$pays.'</br>';
-        echo '---------------- </br>';
+        echo $province.', Canada</br></br>';
+        
         echo 'Methode de paiement: '.$methode.'</br>';
-        echo '---------------- </br>';
-        echo '</div';
+        echo 'XXXX-XXXX-XXXX-XXXX </br>';
+        echo '</div>';
         
         
         //Affichage des items 
-        echo '<h2 class="titreConfirmation">Vos items choisis:</h2></br></br>';
+        echo '<h2 class="titreConfirmation">Vos items choisis:</h2>';
     
         echo '<div id="itemsCommande">';
         
@@ -84,12 +83,12 @@
                     Sélection: '.$sexe.' <br>
                     Grandeur: '.$tab_ligne_lue[6].' <br>
                     Couleur: '.$tab_ligne_lue[5].' <br>
-                    Prix unitaire: '.$tab_ligne_lue[4].' <br>
+                    Prix unitaire: '.$tab_ligne_lue[4].'$ <br>
                     Quantité: '.$quantite.' <br>
-                    ------------ </br>';
+                    ------------------------- </br>';
             
-        echo '</div>';
-        echo '</div>';
+        
+        
         
         while($row = mysqli_fetch_array($result)):    
             if ($type == "hc"):
@@ -151,9 +150,11 @@
         
         
             }
+            
         }
         
-        
+        echo '</div>';
+        echo '</div>';
         
         
         date_default_timezone_set('America/Montreal');
@@ -171,16 +172,20 @@
         $courant .= $nomClient;
 	$courant .= " ".$prenomClient;
         $courant .= "\n";
+        $courant .= $telephone;
+        $courant .= "\n";
         $courant .= $emailClient;
         $courant .= "\n";
 	$courant .= $adresseClient;
         $courant .= "\n";
 	$courant .= $codePostal;
 	$courant .= " ".$province;
-        $courant .= " ".$pays;
+        $courant .= " Canada";
         $courant .= "\n";
-        
+ 
         $courant .= $methode;
+        $courant .= "\n";
+        $courant .= "XXXX-XXXX-XXXX-XXXX";
         $courant .= "\n";
         
         $fichier = fopen("panier.txt", "r");
