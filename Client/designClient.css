@@ -119,18 +119,12 @@ div.accueil {
 #marquee {
 	margin: 0em, 10em;
 	text-align: center;
+	width: 1430px;
 }
-#titreGauche {
+#banniere {
 	float: left;
 	width: 50em;
 	font-family: AppleGothic, Lucida Calligraphy;
-}
-#titreDroite {
-	float: right;
-	width: 20em;
-	color: green;
-	padding-top: 5px;
-	font-family: Libian SC Regular, Copperplate;
 }
 #inspire {
 	color: white;
@@ -290,7 +284,7 @@ img#delete {
 form#commander {
 	text-align: center;
 }
-button#caisse, button#suivant, button.infolettre, input#montrer {
+button#caisse, button#suivant, input#infolettre, input#montrer, input#envoyerRetour {
 	background-color: darkblue;
 	color: white;
 	padding: 10px 24px;
@@ -306,15 +300,16 @@ div.contact {
 	float: left;
 	width: 40%;
 	margin: 2em;
+	margin-top: 10em;
 	
 }
 address#adresse {
 	font-size: 20px;
-	color: black;
+	/*color: black;*/
 	font-family: Eurostile;
 }
 address>h4 {
-	color: black;
+	color: white;
 	font-style: normal;
 	font-family: Kristen ITC, Copperplate;
 }
@@ -345,7 +340,7 @@ form#retour>label {
 div.haut {
 	width: 1400px;
 	height: 750px;
-	background-image: url("images/chapeau.png");
+	/*background-image: url("images/chapeau.png");*/
 	background-repeat: no-repeat;
 	background-repeat: round;
 	margin: 3em 0em;
@@ -415,6 +410,7 @@ div.bas {
 	color: #a5780e;
 	font-family: Copperplate;
 	width: 100%;
+	background-color: black;
 }
 .bas>p {
 	color: white;
