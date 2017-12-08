@@ -24,16 +24,29 @@
         <div id="confirmCommande">
 		<h1 class="confirmation">Confirmation de la commande</h1>
 		';
+        
     
+        
 	session_start();
 	$_POST = $_SESSION;
+
 	
     $nom = $_POST['nomClient'];
     $prenom = $_POST['prenomClient'];
-    $telephone = $_POST['telephone'];
+    $telephone1 = $_POST['telephone'];
+    $telephone2 = $_POST['telephone1'];
+    $telephone3 = $_POST['telephone2'];
+    
+     
+    $telephone = "($telephone1) $telephone2 - $telephone3";
+    echo $telephone;
     $email = $_POST['emailClient'];
     $adresse = $_POST['adresseClient'];
-    $codePostal = $_POST['codePostal'];
+    $codePostal1 = $_POST['codePostal'];
+    $codePostal2 = $_POST['codePostal'];
+    
+    $codePostal = "$codePostal1 $codePostal2";
+    echo $codePostal;
     $province = $_POST['province'];
     $methode = $_POST['methode'];
     

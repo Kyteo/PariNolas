@@ -48,7 +48,7 @@ $msgErreur = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['suivant'])) {
     $nomClient = tester($_POST["nomClient"]);
     $prenomClient = tester($_POST["prenomClient"]);
-	$telephone = tester($_POST["telephone"]);
+    $telephone = tester($_POST["telephone"]);
     $emailClient = tester($_POST["emailClient"]);
     $adresseClient = tester($_POST["adresseClient"]);
     $codePostal = tester($_POST["codePostal"]);
