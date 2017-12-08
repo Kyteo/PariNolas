@@ -13,7 +13,7 @@
 <body>
 	
 	<?php include 'entete.php'; ?>
-	
+	<?php echo 'TEst'; ?>
 	<br><br>
 	<div id="pageAccueil">
 		<div id="lignes">
