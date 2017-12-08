@@ -48,10 +48,18 @@ $msgErreur = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['suivant'])) {
     $nomClient = tester($_POST["nomClient"]);
     $prenomClient = tester($_POST["prenomClient"]);
-    $telephone = tester($_POST["telephone"]);
+    
+    $telephone1 = tester( $_POST["telephone1"]);
+    $telephone2 = tester( $_POST["telephone2"]);
+    $telephone3 = tester( $_POST["telephone3"]);
+  
+    
     $emailClient = tester($_POST["emailClient"]);
     $adresseClient = tester($_POST["adresseClient"]);
-    $codePostal = tester($_POST["codePostal"]);
+    
+    $codePostal1 = tester($_POST["codePostal1"]);
+    $codePostal2 = tester($_POST["codePostal2"]);
+    
     $province = tester($_POST["province"]);
     $methode = tester($_POST["methode"]);
 	$carte = tester($_POST["carte"]);
@@ -59,11 +67,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['suivant'])) {
 	/* 
 	Si attributs ne sont pas set = erreur
 	*/
-	if (!isset($nomClient) || !isset($prenomClient) || !isset($emailClient) || !isset($adresseClient) || !isset($codePostal) || !isset($province) || !isset($telephone) || !isset($methode) || !isset($carte)) {
+	if (!isset($nomClient) || !isset($prenomClient) || !isset($emailClient) || !isset($adresseClient)|| !isset($codePostal1) || !isset($codePostal2) || !isset($province) || !isset($telephone1) || !isset($telephone2) || !isset($telephone3) || !isset($methode) || !isset($carte)) {
        http_response_code(400);
        exit;
 	}
-	$requis = array("nomClient", "prenomClient", "emailClient", "telephone", "adresseClient", "codePostal", "province", "carte", "methode");
+	$requis = array("nomClient", "prenomClient", "emailClient", "telephone1", "telephone2", "telephone3", "adresseClient", "codePostal1", "codePostal2", "province", "carte", "methode");
 	$donnees_vides = array();
 	$erreur_vide = false;
 	foreach($requis as $champ) {
