@@ -23,39 +23,80 @@
  		<h1 class="paiement">Méthode de paiement</h1>
  		<h5>*Livraison uniquement au Québec et en Ontario</h5>
 		<h5>**Paiement uniquement par carte de crédit</h5><br>
- 		
+ 		';
 
-	        <form action="confirmationPanier.php" method="post" enctype="multipart/form-data">
-		        <label for="nomClient">Nom : </label>
-		        <input type="text" id="nomClient" name="nomClient" maxlength="50" size="20"><br><br>
-		        <label for="prenomClient">Prenom : </label>
-		        <input type="text" id="prenomClient" name="prenomClient" maxlength="50" size="20"><br><br>
-                        <label for="telephone">Numero de téléphone :  </label>
-		        <input type="text" id="telephone" name="telephone" maxlength="50" size="20" placeholder="(000)000-0000" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"><br><br>
-		        <label for="emailClient">Email : </label>
-		        <input type="text" id="emailClient" name="emailClient" maxlength="50" size="20"><br><br>
-		        <label for="adresseClient">Adresse : </label>
-		        <input type="text" id="adresseClient" name="adresseClient" maxlength="50" size="20"><br><br>
-		        <label for="codePostal">Code Postal : </label>
-		        <input type="text" id="codePostal" name="codePostal" maxlength="6" size="6" placeholder="A0A 0A0"><br><br>
-		        <label for="province">Province : </label>
-		            <select name="province"> 
-                                <option value="Quebec">QC</option>
-		            	<option value="Ontario">ON</option>
-		            </select><br><br>
-		        <label for="methode">Paiement : </label><br>
-				<input type="radio" id="methode" name="methode" value="Mastercard" checked="checked"/> Mastercard <br>
-				<input type="radio" id="methode" name="methode" value="Visa" /> Visa <br><br>
-                        <label for="carte">No Carte : </label>
-		        <input type="text" id="carte" name="carte" size="21" value="XXXX-XXXX-XXXX-XXXX"><br><br> 
-		        <input type="hidden" value="'.$totalPrix.'" name="totalPrix">
-		        <button id="suivant" name="suivant" type="submit">Suivant</button>
-	        </form> 
-		</div>
-   
-	   ';
-	   include 'basDePage.php';
-         
+ 	echo '
+ 		<h4>Total avec taxes : '.$totalPrix.' $</h4>
+		';
+     ?>              
+
+	 
+		 <h3>Adresse d'expédition</h3><br>
+
+	     <form method="post" action="paiement.php" enctype="multipart/form-data">
+		
+	        <label for="nomClient">Nom </label><br>
+	        <?php echo "<input type='text' id='nomClient' name='nomClient' value='{$nomClient}' maxlength='50' size='50'><br><br>"; ?>
+		
+	        <label for="prenomClient">Prenom </label><br>
+			<?php echo "<input type='text' id='prenomClient' name='prenomClient' value='{$prenomClient}' maxlength='50' size='50'><br><br>"; ?>
+			
+			<label for="telephone">Numéro de téléphone </label><br>
+	        <?php echo "<input type='text' id='telephone' name='telephone' value='{$telephone}' maxlength='20' size='20'><br><br>"; ?>
+		
+	        <label for="emailClient">Email </label><br>
+			<?php echo "<input type='text' id='emailClient' name='emailClient' value='{$emailClient}' maxlength='50' size='50'><br><br>"; ?>
+		
+	        <label for="adresseClient">Adresse </label><br>
+			<?php echo "<input type='text' id='adresseClient' name='adresseClient' value='{$adresseClient}' maxlength='50' size='50'><br><br>"; ?>
+		
+	        <label for="codePostal">Code Postal </label><br>
+			<?php echo "<input type='text' id='codePostal' name='codePostal' value='{$codePostal}' maxlength='6' size='10'><br><br>"; ?>
+		
+	        <label for="province">Province </label><br>
+	            <select name="province" id="province">
+					<?php
+						if($province == "Ontario") {
+							$selected = "selected='selected'";
+						} else {
+							$selected = "";
+						}
+						echo "<option value='Ontario' {$selected}>ON</option>";
+				
+						if($province == "Quebec") {
+							$selected = "selected='selected'";
+						} else {
+							$selected = "";
+						}
+						echo "<option value='Quebec' {$selected}>QC</option>";
+					?>
+	            </select><br><br>
+			
+	        <label for="methode">Méthode de paiement </label><br>
+			<?php
+				$checked = trouverBoutonACocher($methode, "Mastercard");
+				echo "<input type='radio' id='methode' name='methode' value='Mastercard' {$checked}>Mastercard<br>";
+				$checked = trouverBoutonACocher($methode, "Visa");
+				echo "<input type='radio' id='methode' name='methode' value='Visa' {$checked}>Visa<br>";
+			?>
+			
+			<label for="carte">Numéro de la carte </label><br>
+	        <input type="text" id="carte" name="carte" size="21" value="XXXX-XXXX-XXXX-XXXX"><br><br>
+				
+	        <?php 
+				echo "<input type='hidden' value='{$totalPrix}' name='totalPrix'>"; 
+				if ($msgErreur != "") {
+			     	echo "<p>{$msgErreur}</p>";
+				}
+			?>
+	        <input type="submit" id="suivant" name="suivant" value="Suivant">
+        </form> 
+	</div>
+	 
+      
+	        
+<?php 
+   include 'basDePage.php';   
 ?>
     
     
