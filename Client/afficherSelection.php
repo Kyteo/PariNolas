@@ -2,60 +2,25 @@
 
 
 function afficherSelection($selection, $sexe) {
-       
-		   
-$hostname = 'localhost';
-$username = 'root';
-$password = '';
-$databaseName = 'parinolas';
+          
+	$hostname = 'localhost';
+	$username = 'root';
+	$password = 'root';
+	$databaseName = 'parinolas';
 
-$connect = mysqli_connect($hostname, $username, $password, $databaseName);
-
-    $Type = $selection;
+	$connect = mysqli_connect($hostname, $username, $password, $databaseName);
   
-    $query = "show TABLES";
-    $result = mysqli_query($connect, $query); // Get table names
-    
-    while($row = mysqli_fetch_array($result)):    
-    if ($Type == "hc"):
-       $query = "SELECT * FROM `hautsCourt` WHERE SEXE LIKE '$sexe'"; 
-       $result1 = mysqli_query($connect, $query);
-    endif;
-    if ($Type == "hl"):
-       $query = "SELECT * FROM `hautsLong` WHERE SEXE LIKE '$sexe'"; 
-       $result1 = mysqli_query($connect, $query);
-    endif;
-    if ($Type == "sh"):
-       $query = "SELECT * FROM `shorts` WHERE SEXE LIKE '$sexe'"; 
-       $result1 = mysqli_query($connect, $query);
-    endif;
-    if ($Type == "pa"):
-       $query = "SELECT * FROM `pantalons` WHERE SEXE LIKE '$sexe'"; 
-       $result1 = mysqli_query($connect, $query);
-    endif;
-    if ($Type == "ve"):
-       $query = "SELECT * FROM `vestes` WHERE SEXE LIKE '$sexe'"; 
-       $result1 = mysqli_query($connect, $query);
-    endif;
-    if ($Type == "fo"):
-       $query = "SELECT * FROM `foulards` WHERE SEXE LIKE '$sexe'"; 
-       $result1 = mysqli_query($connect, $query);
-    endif;
-    if ($Type == "ch"):
-       $query = "SELECT * FROM `chapeaux` WHERE SEXE LIKE '$sexe'"; 
-       $result1 = mysqli_query($connect, $query);
-    endif;
-    if ($Type == "ce"):
-       $query = "SELECT * FROM `ceintures` WHERE SEXE LIKE '$sexe'"; 
-       $result1 = mysqli_query($connect, $query);
-    endif;
-    if ($Type == "ga"):
-       $query = "SELECT * FROM `gants` WHERE SEXE LIKE '$sexe'"; 
-       $result1 = mysqli_query($connect, $query);
-    endif;   
-endwhile;
+	$query = "show TABLES";
+	$result = mysqli_query($connect, $query); // Get table names
+
+	while($row = mysqli_fetch_array($result)):    
+
+	   $query = "SELECT * FROM $selection WHERE SEXE LIKE '$sexe'"; 
+	   $result1 = mysqli_query($connect, $query);
+
+	endwhile;
         
-return $result1;
+	return $result1;
                 
 }
 
@@ -90,17 +55,19 @@ return $result1;
 			include 'hommeMenu.php';
                         
 		}
-		echo '<h2>';
+		echo '<div id="touteSelection"><br>';
+		echo '<h2 id="nomSelection">Catégorie ';
 
 		$selection_complet = trouverSelection($selection);
 		echo $selection_complet;
 		
-		echo '</h2>';
+		echo '</h2><br>';
 		
 		$result2 = afficherSelection($selection, $sexe);
 	
+		
                 while($row = mysqli_fetch_array($result2)):
-                   
+                  
                   ?><div class="main"><?php
                        ?><div class="photo"><?php
                             echo '
@@ -118,12 +85,12 @@ return $result1;
                        ?></div><?php
                        ?><div class="nomPrix"><?php
                             echo "<p>".$row['Nom']."</p>";
-                            echo "<p>".$row['Prix']."</p>";
-							echo "<p>".$row['Image']."</p>";
+                            echo "<p>".$row['Prix']."$</p>";
                        ?></div><?php
                   ?></div><?php
                   
                 endwhile;
+		echo '<div>';
 				
 	?>
 	

@@ -19,12 +19,12 @@
         echo '
             <br>
             <div id="confirmCommande">
-		<h1 class="confirmation">Confirmation de l achat</h1>';
+		<h1 class="confirmation">Confirmation de l&apos;achat</h1>';
         
         // Connexion a la base de donnees
         $hostname = 'localhost';
         $username = 'root';
-        $password = '';
+        $password = 'root';
         $databaseName = 'parinolas';
 
         $connect = mysqli_connect($hostname, $username, $password, $databaseName);
@@ -91,42 +91,10 @@
         
         
         while($row = mysqli_fetch_array($result)):    
-            if ($type == "hc"):
-                $query = "SELECT Quantite FROM `hautsCourt` WHERE ID LIKE '$ID' AND NOM LIKE '$nom' AND SEXE LIKE '$sexe'"; 
-                $result1 = mysqli_query($connect, $query);
-            endif;
-            if ($type == "hl"):
-                $query = "SELECT Quantite FROM `hautsLong` WHERE ID LIKE '$ID' AND NOM LIKE '$nom' AND SEXE LIKE '$sexe'";  
-                $result1 = mysqli_query($connect, $query);
-            endif;
-            if ($type == "sh"):
-                $query = "SELECT Quantite FROM `shorts` WHERE ID LIKE '$ID' AND NOM LIKE '$nom' AND SEXE LIKE '$sexe'";  
-                $result1 = mysqli_query($connect, $query);
-            endif;
-            if ($type == "pa"):
-                $query = "SELECT Quantite FROM `pantalons` WHERE ID LIKE '$ID' AND NOM LIKE '$nom' AND SEXE LIKE '$sexe'"; 
-                $result1 = mysqli_query($connect, $query);
-            endif;
-            if ($type == "ve"):
-                $query = "SELECT Quantite FROM `vestes` WHERE ID LIKE '$ID' AND NOM LIKE '$nom' AND SEXE LIKE '$sexe'";  
-                $result1 = mysqli_query($connect, $query);
-            endif;
-            if ($type == "fo"):
-                $query = "SELECT Quantite FROM `foulards` WHERE ID LIKE '$ID' AND NOM LIKE '$nom' AND SEXE LIKE '$sexe'"; 
-                $result1 = mysqli_query($connect, $query);
-            endif;
-            if ($type == "ch"):
-                $query = "SELECT Quantite FROM `chapeaux` WHERE ID LIKE '$ID' AND NOM LIKE '$nom' AND SEXE LIKE '$sexe'";  
-                $result1 = mysqli_query($connect, $query);
-            endif;
-            if ($type == "ce"):
-                $query = "SELECT Quantite FROM `ceintures` WHERE ID LIKE '$ID' AND NOM LIKE '$nom' AND SEXE LIKE '$sexe'";               
-                $result1 = mysqli_query($connect, $query);
-            endif;
-            if ($type == "ga"):
-                $query = "SELECT Quantite FROM `gants` WHERE ID LIKE '$ID' AND NOM LIKE '$nom' AND SEXE LIKE '$sexe'"; 
-                $result1 = mysqli_query($connect, $query);
-            endif;
+           
+            $query = "SELECT Quantite FROM $type WHERE ID LIKE '$ID' AND NOM LIKE '$nom' AND SEXE LIKE '$sexe'"; 
+            $result1 = mysqli_query($connect, $query);
+            
         endwhile;    
 
         
@@ -135,18 +103,11 @@
         
         while($row1 = mysqli_fetch_array($result1)):  
                 
-        
-                
                 $quantite2 = $row1[0] - (int)$quantite;
-                
-                
-                
-                $type2 = trouverSelection2($type);
-                
-                $query2 = "UPDATE $type2 SET  Quantite = $quantite2 WHERE ID LIKE '$ID' AND NOM LIKE '$nom' AND SEXE LIKE '$sexe'"; 
+          
+                $query2 = "UPDATE $type SET  Quantite = $quantite2 WHERE ID LIKE '$ID' AND NOM LIKE '$nom' AND SEXE LIKE '$sexe'"; 
                 $result2 = mysqli_query($connect, $query2);
         endwhile;
-        
         
         
             }
@@ -233,10 +194,10 @@
        
         
         if(!mail($to,$subject,$txt,$headers)){
-                           echo 'Non Ajouter';
+                           echo '<h2 class="messageCommande">Erreur! Commande non procédée</h2>';
                         
                         }else{
-                           echo 'Ajouter';       
+                           echo '<h2 class="messageCommande">Commande procédée avec succès! Merci!</h2>';       
                         
                         }
         

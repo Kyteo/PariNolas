@@ -16,19 +16,19 @@
 	
 	<?php 
 
-	include 'entete.php'; 
-        include 'trouverAttributsItem.php';
-        
-        $img = $_GET['Image'];
-	$type = $_GET['Selection'];
-	$id = $_GET['ID'];
-	$nom = $_GET['Nom'];
-	$sexe = $_GET['Sexe'];
-	$prix = $_GET['Prix'];
+		include 'entete.php'; 
+		include 'trouverAttributsItem.php';
+	
+		$img = $_GET['Image'];
+		$type = $_GET['Selection'];
+		$id = $_GET['ID'];
+		$nom = $_GET['Nom'];
+		$sexe = $_GET['Sexe'];
+		$prix = $_GET['Prix'];
         
         $hostname = 'localhost';
         $username = 'root';
-        $password = '';
+        $password = 'root';
         $databaseName = 'parinolas';
 
         $connect = mysqli_connect($hostname, $username, $password, $databaseName);
@@ -39,54 +39,23 @@
        
         //Pour Quantite
         $query = "show TABLES";
-        $result = mysqli_query($connect, $query);            
+        $result = mysqli_query($connect, $query);     
+		
+		echo $type;
+		echo $id;
+		echo $nom;
+		echo $sexe;       
                     
         while($row = mysqli_fetch_array($result)):    
-            if ($type == "hc"):
-                $query1 = "SELECT Quantite FROM `hautsCourt` WHERE ID LIKE '$id' AND NOM LIKE '$nom' AND SEXE LIKE '$sexe'"; 
-                $result1 = mysqli_query($connect, $query1);
-            endif;
-            if ($type == "hl"):
-                $query1 = "SELECT Quantite FROM `hautsLong` WHERE ID LIKE '$id' AND NOM LIKE '$nom' AND SEXE LIKE '$sexe'";  
-                $result1 = mysqli_query($connect, $query1);
-            endif;
-            if ($type == "sh"):
-                $query1 = "SELECT Quantite FROM `shorts` WHERE ID LIKE '$id' AND NOM LIKE '$nom' AND SEXE LIKE '$sexe'";  
-                $result1 = mysqli_query($connect, $query1);
-            endif;
-            if ($type == "pa"):
-                $query1 = "SELECT Quantite FROM `pantalons` WHERE ID LIKE '$id' AND NOM LIKE '$nom' AND SEXE LIKE '$sexe'"; 
-                $result1 = mysqli_query($connect, $query1);
-            endif;
-            if ($type == "ve"):
-                $query1 = "SELECT Quantite FROM `vestes` WHERE ID LIKE '$id' AND NOM LIKE '$nom' AND SEXE LIKE '$sexe'";  
-                $result1 = mysqli_query($connect, $query1);
-            endif;
-            if ($type == "fo"):
-                $query1 = "SELECT Quantite FROM `foulards` WHERE ID LIKE '$id' AND NOM LIKE '$nom' AND SEXE LIKE '$sexe'"; 
-                $result1 = mysqli_query($connect, $query1);
-            endif;
-            if ($type == "ch"):
-                $query1 = "SELECT Quantite FROM `chapeaux` WHERE ID LIKE '$id' AND NOM LIKE '$nom' AND SEXE LIKE '$sexe'";  
-                $result1 = mysqli_query($connect, $query1);
-            endif;
-            if ($type == "ce"):
-                $query1 = "SELECT Quantite FROM `ceintures` WHERE ID LIKE '$id' AND NOM LIKE '$nom' AND SEXE LIKE '$sexe'";               
-                $result1 = mysqli_query($connect, $query1);
-            endif;
-            if ($type == "ga"):
-                $query1 = "SELECT Quantite FROM `gants` WHERE ID LIKE '$id' AND NOM LIKE '$nom' AND SEXE LIKE '$sexe'"; 
-                $result1 = mysqli_query($connect, $query1);
-            endif;
+            $query1 = "SELECT Quantite FROM $type WHERE ID LIKE '$id' AND NOM LIKE '$nom' AND SEXE LIKE '$sexe'"; 
+            $result1 = mysqli_query($connect, $query1);    
         endwhile;
  
         while($row1 = mysqli_fetch_array($result1)): 
              $laQuantite = $row1[0];
 		     
         endwhile;   
-	
-	echo 'L image est : '.$img;
-	
+		
 	echo "<div class='item'>";
 	
 	echo '<img src="../Admin/Images/'.$img.'" width="400" height="400" >';
@@ -122,18 +91,18 @@
 	echo '
 		<select name="quantite">';
         
-                        //Affiche la quantite restante
-                        if ($laQuantite >= 0 && $laQuantite <= 5)  {
-                                for ($i = 1; $i <= $laQuantite; $i++){
-                                    echo "<option value='$i'>$i</option>";
-                                }
-                        } else {
-                            
-                        //Affiche une quantite maximum de 5
-                            for ($i = 1; $i <= 5; $i++){
-                                echo "<option value='$i'>$i</option>";
-                            }
-                        }
+    //Affiche la quantite restante
+    if ($laQuantite >= 0 && $laQuantite <= 5)  {
+            for ($i = 1; $i <= $laQuantite; $i++){
+                echo "<option value='$i'>$i</option>";
+            }
+    } else {
+        
+    //Affiche une quantite maximum de 5
+        for ($i = 1; $i <= 5; $i++){
+            echo "<option value='$i'>$i</option>";
+        }
+    }
                        
 	echo	'</select>';
          
@@ -142,8 +111,7 @@
             echo '<a id="rupture"> *En rupture de stock</a>';
         }
 
-
-        echo '<br><br><br>';
+	echo '<br><br><br>';
         
 	echo '<input type="hidden" value="'.$type.'" name="Type">';
 	echo '<input type="hidden" value="'.$sexe.'" name="Sexe">';

@@ -3,31 +3,31 @@
 function trouverSelection($selectionAVerifier) {
 	
 	switch($selectionAVerifier) {
-		case 'hc': 
+		case 'hautsCourt': 
 			$selection = 'Hauts à manches courtes';
 			break;
-		case 'hl':
+		case 'hautsLong':
 			$selection = 'Hauts à manches longues';
 			break;
-		case 'pa':
+		case 'pantalons':
 			$selection = 'Pantalons';
 			break;
-		case 'sh':
+		case 'shorts':
 			$selection = 'Shorts';
 			break;
-		case 've':
+		case 'vestes':
 			$selection = 'Vestes';
 			break;
-		case 'fo':
+		case 'foulards':
 			$selection = 'Foulards';
 			break;
-		case 'ch':
+		case 'chapeaux':
 			$selection = 'Chapeaux';
 			break;
-		case 'ce':
+		case 'ceintures':
 			$selection = 'Ceintures';
 			break;
-		case 'ga':
+		case 'gants':
 			$selection = 'Gants';
 			break;
 	}
@@ -35,40 +35,6 @@ function trouverSelection($selectionAVerifier) {
 	
 }
 
-function trouverSelection2($selectionAVerifier) {
-	
-	switch($selectionAVerifier) {
-		case 'hc': 
-			$selection = 'hautsCourt';
-			break;
-		case 'hl':
-			$selection = 'hautsLong';
-			break;
-		case 'pa':
-			$selection = 'pantalons';
-			break;
-		case 'sh':
-			$selection = 'shorts';
-			break;
-		case 've':
-			$selection = 'vestes';
-			break;
-		case 'fo':
-			$selection = 'foulards';
-			break;
-		case 'ch':
-			$selection = 'chapeaux';
-			break;
-		case 'ce':
-			$selection = 'ceintures';
-			break;
-		case 'ga':
-			$selection = 'gants';
-			break;
-	}
-	return $selection;
-	
-}
 
 function trouverCouleur($couleurAVerifier) {
 	$couleur = "";

@@ -33,15 +33,15 @@ if(isset($_POST["delete"])){
 	$fichier = fopen("panier.txt", "r");
         
         
-        $hostname = 'localhost';
-        $username = 'root';
-        $password = '';
-        $databaseName = 'parinolas';
+    $hostname = 'localhost';
+    $username = 'root';
+    $password = 'root';
+    $databaseName = 'parinolas';
 
-        $connect = mysqli_connect($hostname, $username, $password, $databaseName);
+    $connect = mysqli_connect($hostname, $username, $password, $databaseName);
     
 	$sous_total_prix = 0;
-        $row = 0;
+	$row = 0;
 	echo '
 		<br>
 		<h1 class="panier">Mon panier</h1>
@@ -53,73 +53,42 @@ if(isset($_POST["delete"])){
 		
 		$ligne = fgets($fichier);
 		$tab_ligne_lue = explode(" ", $ligne);
-		if ($tab_ligne_lue[0] != ""){
-                
-                    $nom = $tab_ligne_lue[3];
-                                  
-                echo '<h3 class="item">' . $nom . '</h3>';
-		echo '
-			<table border="1" class="panierItem">
-				<tr>
-					<th> Article </th>
-					<th> COULEUR </th>
-					<th> GRANDEUR </th>
-					<th> QTE </th>
-					<th> PRIX </th>
-					<th class="delete">SUPPRIMER</th>
-				</tr>
-				<tr>
-		';
-                $type = $tab_ligne_lue[0];
-                $sexe = $tab_ligne_lue[1];
-		$id = $tab_ligne_lue[2];
-		$prix = $tab_ligne_lue[4];
-		$sous_total_prix += $prix;
-		$couleur = $tab_ligne_lue[5];
-		$grandeur = $tab_ligne_lue[6];
-		$quantite = $tab_ligne_lue[7];
-                 
+		if ($tab_ligne_lue[0] != "") {
+			
+			$nom = $tab_ligne_lue[3];
+			
+			echo '<h3 class="item">' . $nom . '</h3>';
+			echo '
+				<table border="1" class="panierItem">
+					<tr>
+						<th> Article </th>
+						<th> COULEUR </th>
+						<th> GRANDEUR </th>
+						<th> QTE </th>
+						<th> PRIX </th>
+						<th class="delete">SUPPRIMER</th>
+					</tr>
+					<tr>
+			';
+            $type = $tab_ligne_lue[0];
+            $sexe = $tab_ligne_lue[1];
+			$id = $tab_ligne_lue[2];
+			$prix = $tab_ligne_lue[4];
+			$sous_total_prix += $prix;
+			$couleur = $tab_ligne_lue[5];
+			$grandeur = $tab_ligne_lue[6];
+			$quantite = $tab_ligne_lue[7];
+
                 //Trouver l'image
                 $query = "show TABLES";
                 $result = mysqli_query($connect, $query); // Get table names
 
                 while($row = mysqli_fetch_array($result)):    
-                    if ($type == "hc"):
-                        $query1 = "SELECT Image FROM `hautsCourt` WHERE ID LIKE '$id'"; 
-                        $result1 = mysqli_query($connect, $query1);
-                    endif;
-                    if ($type == "hl"):
-                        $query1 = "SELECT Image FROM `hautsLong` WHERE ID LIKE '$id'"; 
-                        $result1 = mysqli_query($connect, $query1);
-                    endif;
-                    if ($type == "sh"):
-                        $query1 = "SELECT Image FROM `shorts` WHERE ID LIKE '$id'"; 
-                        $result1 = mysqli_query($connect, $query1);
-                    endif;
-                    if ($type == "pa"):
-                        $query1 = "SELECT Image FROM `pantalons` WHERE ID LIKE '$id'"; 
-                        $result1 = mysqli_query($connect, $query1);
-                    endif;
-                    if ($type == "ve"):
-                        $query1 = "SELECT Image FROM `vestes` WHERE ID LIKE '$id'"; 
-                        $result1 = mysqli_query($connect, $query1);
-                    endif;
-                    if ($type == "fo"):
-                        $query1 = "SELECT Image FROM `foulards` WHERE ID LIKE '$id'"; 
-                        $result1 = mysqli_query($connect, $query1);
-                    endif;
-                    if ($type == "ch"):
-                        $query1 = "SELECT Image FROM `chapeaux` WHERE ID LIKE '$id'"; 
-                        $result1 = mysqli_query($connect, $query1);
-                    endif;
-                    if ($type == "ce"):
-                        $query1 = "SELECT Image FROM `ceintures` WHERE ID LIKE '$id'"; 
-                        $result1 = mysqli_query($connect, $query1);
-                    endif;
-                    if ($type == "ga"):
-                        $query1 = "SELECT Image FROM `gants` WHERE ID LIKE '$id'"; 
-                        $result1 = mysqli_query($connect, $query1);
-                    endif;   
+                   
+                    $query1 = "SELECT Image FROM $type WHERE ID LIKE '$id'"; 
+                    $result1 = mysqli_query($connect, $query1);
+              
+                 
             endwhile;
                 
                 
@@ -149,41 +118,44 @@ if(isset($_POST["delete"])){
 		 }
 	}
 	
-	$tps = $sous_total_prix * 0.05;
-	$tvq = ($sous_total_prix + $tps) * 0.0975;
-	$taxes = $tps + $tvq;
-	$taxes_arrondies = arrondirPrix($taxes);
-	$total_prix = $sous_total_prix + $taxes;
-	$total_arrondi = arrondirPrix($total_prix);
-	echo '
-		<br><br>
-		<div class="prix">
-			<table class="prix">
-				<tr>
-					<th class="prix"><h4>Sous-total : </th> 
-					<td class="prix">'. $sous_total_prix .'$</td>
-				</tr>
-				<tr>
-					<th class="prix">Taxes :</th>
-					<td class="prix">'. $taxes_arrondies . '$</td></h4>
-				</tr>
-				<tr>
-					<th class="prix"><h3>Total :</th>
-					<td class="prix">'. $total_arrondi . '$</td></h3>
-				</tr>
-			</table>
+	if($sous_total_prix == 0) {
+		echo '<h1>Votre panier est vide! :(</h1><br>';
+	} else {
+		$tps = $sous_total_prix * 0.05;
+		$tvq = ($sous_total_prix + $tps) * 0.0975;
+		$taxes = $tps + $tvq;
+		$taxes_arrondies = arrondirPrix($taxes);
+		$total_prix = $sous_total_prix + $taxes;
+		$total_arrondi = arrondirPrix($total_prix);
+		echo '
+			<br><br>
+			<div class="prix">
+				<table class="prix">
+					<tr>
+						<th class="prix"><h4>Sous-total : </th> 
+						<td class="prix">'. $sous_total_prix .'$</td>
+					</tr>
+					<tr>
+						<th class="prix">Taxes :</th>
+						<td class="prix">'. $taxes_arrondies . '$</td></h4>
+					</tr>
+					<tr>
+						<th class="prix"><h3>Total :</th>
+						<td class="prix">'. $total_arrondi . '$</td></h3>
+					</tr>
+				</table>
                         
-		</div>
+			</div>
 	
         
         
             
-        <form id="commander" action="paiement.php" method="post" enctype="multipart/form-data">
+	        <form id="commander" action="paiement.php" method="post" enctype="multipart/form-data">
             
-             <input type="hidden" value="'.$total_arrondi.'" name="totalPrix">
-             <button id="caisse" name="commander" type="submit">Passez à la caisse</button>
-        </form>';
-		
+	             <input type="hidden" value="'.$total_arrondi.'" name="totalPrix">
+	             <button id="caisse" name="commander" type="submit">Passez à la caisse</button>
+	        </form>';
+		}
 		
 		include 'basDePage.php';
     ?>
