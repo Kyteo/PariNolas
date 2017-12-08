@@ -1,7 +1,5 @@
 <?php
-
-
-
+	include 'validationPaiement.php';
 ?>
 
 <html>
@@ -18,20 +16,14 @@
 <?php
         
 	include 'entete.php'; 
+	$totalPrix = $_POST['totalPrix'];
         
-         $totalPrix = $_POST['totalPrix'];
-        
-	 	echo '
-	 		<br><div id="paiement">
-	 		<h1 class="paiement">Méthode de paiement</h1>
-	 		<h5>*Livraison uniquement au Québec et en Ontario</h5>
-                        <h5>**Paiement uniquement par carte de crédit</h5><br>
-	 		';
-	
-	 	echo '
-	 		<h4>Total avec taxes : '.$totalPrix.' $</h4>
-	 		<h3>Adresse d&apos;expédition</h3><br>
-                       
+ 	echo '
+ 		<br><div id="paiement">
+ 		<h1 class="paiement">Méthode de paiement</h1>
+ 		<h5>*Livraison uniquement au Québec et en Ontario</h5>
+		<h5>**Paiement uniquement par carte de crédit</h5><br>
+ 		
 
 	        <form action="confirmationPanier.php" method="post" enctype="multipart/form-data">
 		        <label for="nomClient">Nom : </label>
@@ -69,3 +61,16 @@
     
 </body>
 </html>
+
+<?php
+
+	function trouverBoutonACocher($methode, $valeur) {
+		if($methode == $valeur) {
+			$cochee = "checked='checked'";
+		} else {
+			$cochee= "";
+		}
+		return $cochee;
+	}
+
+?>
