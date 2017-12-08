@@ -3,8 +3,8 @@ echo '
 	<div class="entete">
 		<div class="droite">
 			<div class="bonjour">
-				<pre class="bonjour"><a href="contact.php">CONTACT/RETOUR</a><br>
-				<a href=""><img src="images/account.png" alt="Mon compte"></a> <a href="afficherPanier.php"><img src="images/cart.png" alt="Panier">  </a></pre>
+				<pre class="bonjour">
+				<a href="contact.php"><img src="images/contact-logo1.png" alt="Contact et retour"></a> <a href="afficherPanier.php"><img src="images/cart-logo2.png" alt="Panier">  </a></pre>
 			</div>	
 		</div>		
 		
