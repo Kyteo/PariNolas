@@ -78,7 +78,7 @@ if(isset($_POST["delete"])){
 		$couleur = $tab_ligne_lue[5];
 		$grandeur = $tab_ligne_lue[6];
 		$quantite = $tab_ligne_lue[7];
-                echo $type;
+                 
                 //Trouver l'image
                 $query = "show TABLES";
                 $result = mysqli_query($connect, $query); // Get table names

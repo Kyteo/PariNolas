@@ -232,7 +232,7 @@
 
        
         
-        if(mail($to,$subject,$txt,$headers)){
+        if(!mail($to,$subject,$txt,$headers)){
                            echo 'Non Ajouter';
                         
                         }else{

@@ -38,21 +38,21 @@
 		        <input type="text" id="nomClient" name="nomClient" maxlength="50" size="20"><br><br>
 		        <label for="prenomClient">Prenom : </label>
 		        <input type="text" id="prenomClient" name="prenomClient" maxlength="50" size="20"><br><br>
-                        <label for="telephone">Numero de téléphone : </label>
-		        <input type="text" id="telephone" name="telephone" maxlength="50" size="20"><br><br>
+                        <label for="telephone">Numero de téléphone :  </label>
+		        <input type="text" id="telephone" name="telephone" maxlength="50" size="20" placeholder="(000)000-0000" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"><br><br>
 		        <label for="emailClient">Email : </label>
 		        <input type="text" id="emailClient" name="emailClient" maxlength="50" size="20"><br><br>
 		        <label for="adresseClient">Adresse : </label>
 		        <input type="text" id="adresseClient" name="adresseClient" maxlength="50" size="20"><br><br>
 		        <label for="codePostal">Code Postal : </label>
-		        <input type="text" id="codePostal" name="codePostal" maxlength="6" size="6"><br><br>
+		        <input type="text" id="codePostal" name="codePostal" maxlength="6" size="6" placeholder="A0A 0A0"><br><br>
 		        <label for="province">Province : </label>
 		            <select name="province"> 
+                                <option value="Quebec">QC</option>
 		            	<option value="Ontario">ON</option>
-			        <option value="Quebec">QC</option>
 		            </select><br><br>
 		        <label for="methode">Paiement : </label><br>
-				<input type="radio" id="methode" name="methode" value="Mastercard"/> Mastercard <br>
+				<input type="radio" id="methode" name="methode" value="Mastercard" checked="checked"/> Mastercard <br>
 				<input type="radio" id="methode" name="methode" value="Visa" /> Visa <br><br>
                         <label for="carte">No Carte : </label>
 		        <input type="text" id="carte" name="carte" size="21" value="XXXX-XXXX-XXXX-XXXX"><br><br> 
