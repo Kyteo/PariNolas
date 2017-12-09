@@ -2,7 +2,7 @@
         
 $hostname = 'localhost';
 $username = 'root';
-$password = '';
+$password = 'root';
 $databaseName = 'parinolas';
 
 $connect = mysqli_connect($hostname, $username, $password, $databaseName);
@@ -13,43 +13,11 @@ $query = "show TABLES";
 $result = mysqli_query($connect, $query); // Get table names
 
 while($row = mysqli_fetch_array($result)):    
-    if ($Type == "hc"):
-       $query = "SELECT * FROM `hautsCourt` WHERE ID LIKE '$ID'"; 
+    
+       $query = "SELECT * FROM $Type"; 
        $result1 = mysqli_query($connect, $query);
-    endif;
-    if ($Type == "hl"):
-       $query = "SELECT * FROM `hautsLong` WHERE ID LIKE '$ID'"; 
-       $result1 = mysqli_query($connect, $query);
-    endif;
-    if ($Type == "sh"):
-       $query = "SELECT * FROM `shorts` WHERE ID LIKE '$ID'"; 
-       $result1 = mysqli_query($connect, $query);
-    endif;
-    if ($Type == "pa"):
-       $query = "SELECT * FROM `pantalons` WHERE ID LIKE '$ID'"; 
-       $result1 = mysqli_query($connect, $query);
-    endif;
-    if ($Type == "ve"):
-       $query = "SELECT * FROM `vestes` WHERE ID LIKE '$ID'"; 
-       $result1 = mysqli_query($connect, $query);
-    endif;
-    if ($Type == "fo"):
-       $query = "SELECT * FROM `foulards` WHERE ID LIKE '$ID'"; 
-       $result1 = mysqli_query($connect, $query);
-    endif;
-    if ($Type == "ch"):
-       $query = "SELECT * FROM `chapeaux` WHERE ID LIKE '$ID'"; 
-       $result1 = mysqli_query($connect, $query);
-    endif;
-    if ($Type == "ce"):
-       $query = "SELECT * FROM `ceintures` WHERE ID LIKE '$ID'"; 
-       $result1 = mysqli_query($connect, $query);
-    endif;
-    if ($Type == "ga"):
-       $query = "SELECT * FROM `gants` WHERE ID LIKE '$ID'"; 
-       $result1 = mysqli_query($connect, $query);
-    endif;   
-endwhile;?> 
+    
+endwhile;?>
 
     
 
