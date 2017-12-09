@@ -17,7 +17,7 @@ button {
 	text-align: left;
 }
 h1 {
-	background-image: url("/Applications/MAMP/htdocs/Site INM5001/pn-logo.png");
+	background-image: url("pn-logo.png");
 	background-repeat: no-repeat;
 	font-family: Apple Chancery;
 	font-size: 250%;

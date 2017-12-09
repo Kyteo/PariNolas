@@ -6,7 +6,7 @@
 
         $dbHost     = 'localhost';
         $dbUsername = 'root';
-        $dbPassword = '';
+        $dbPassword = 'root';
         $dbName     = 'parinolas';
     
         $db = new mysqli($dbHost, $dbUsername, $dbPassword, $dbName);
@@ -23,62 +23,27 @@
         $result = mysqli_query($db, $query); // Get table names
 
         while($row = mysqli_fetch_array($result)):    
-            if ($Type == "hautsCourt"):
-                $sql = "INSERT INTO `hautsCourt`(ID,Nom,Sexe,Prix,Image,Quantite) VALUES ('$id','$nom','$sexe','$prix','$image','$quantite')"; 
-                mysqli_query($db, $sql);
-            endif;
-            if ($Type == "hautsLong"):
-                $sql = "INSERT INTO `hautsLong`(ID,Nom,Sexe,Prix,Image,Quantite) VALUES ('$id','$nom','$sexe','$prix','$image','$quantite')"; 
-                mysqli_query($db, $sql);
-            endif;
-            if ($Type == "shorts"):
-                $sql = "INSERT INTO `shorts`(ID,Nom,Sexe,Prix,Image,Quantite) VALUES ('$id','$nom','$sexe','$prix','$image','$quantite')";
-                mysqli_query($db, $sql);
-            endif;
-            if ($Type == "pantalons"):
-                $sql = "INSERT INTO `pantalons`(ID,Nom,Sexe,Prix,Image,Quantite) VALUES ('$id','$nom','$sexe','$prix','$image','$quantite')"; 
-                mysqli_query($db, $sql);
-            endif;
-            if ($Type == "vestes"):
-                $sql = "INSERT INTO `vestes`(ID,Nom,Sexe,Prix,Image,Quantite) VALUES ('$id','$nom','$sexe','$prix','$image','$quantite')"; 
-                mysqli_query($db, $sql);
-            endif;
-            if ($Type == "foulards"):
-                $sql = "INSERT INTO `foulards`(ID,Nom,Sexe,Prix,Image,Quantite) VALUES ('$id','$nom','$sexe','$prix','$image','$quantite')"; 
-                mysqli_query($db, $sql);
-            endif;
-            if ($Type == "chapeaux"):
-                $sql = "INSERT INTO `chapeaux`(ID,Nom,Sexe,Prix,Image,Quantite) VALUES ('$id','$nom','$sexe','$prix','$image','$quantite')"; 
-                mysqli_query($db, $sql);
-            endif;
-            if ($Type == "ceintures"):
-                $sql = "INSERT INTO `ceintures`(ID,Nom,Sexe,Prix,Image,Quantite) VALUES ('$id','$nom','$sexe','$prix','$image','$quantite')"; 
-                mysqli_query($db, $sql);
-            endif;
-            if ($Type == "gants"):
-                $sql = "INSERT INTO `gants`(ID,Nom,Sexe,Prix,Image,Quantite) VALUES ('$id','$nom','$sexe','$prix','$image','$quantite')";
-                mysqli_query($db, $sql);
-            endif;
+            
+            $sql = "INSERT INTO `$Type`(ID,Nom,Sexe,Prix,Image,Quantite) VALUES ('$id','$nom','$sexe','$prix','$image','$quantite')"; 
+            mysqli_query($db, $sql);
+            
         endwhile;
 
        
-              if(mysqli_query($db, $sql)){
-                           echo 'Non Ajouter';
-                        
-                        }else{
-                           echo 'Ajouter';       
-                        
-                        }
+		if(mysqli_query($db, $sql)){
+			echo 'Non Ajouter';
+		}else{
+			echo 'Ajouter';     
+		}
          
-     if (move_uploaded_file($_FILES["image"]["tmp_name"], $target)){
-                $msg = "Image uploaded successfully";
-     }else{
-                $msg = "There was a problem uploading image";
+	     if (move_uploaded_file($_FILES["image"]["tmp_name"], $target)){
+	                $msg = "Image uploaded successfully";
+	     }else{
+	                $msg = "There was a problem uploading image";
         
-     }                       
-        
-        
-}
+	     }                       
+       
+	 }
   
 ?>
 <!DOCTYPE html>
@@ -98,7 +63,7 @@
 	
         <form action="itemAjouter.php" method="post" enctype="multipart/form-data">        
 		<label for="nom">Nom d'item : </label>
-                <input type="text" id="nom" name="nom"  maxlength="25" size="27" required="required"><br><br>
+                <input type="text" id="nom" value=Short name="nom"  maxlength="25" size="27" required="required"><br><br>
 		<label for="id">ID : </label>
 		<input type="text" id="id" name="id" maxlength="4" size="8" required="required"><br><br>
 		<label for="sexe">Sexe : </label>
@@ -107,8 +72,11 @@
 		
 		<label for="type">Type : </label>
 		<select name="type" id="type">
-			<option value="hautsLong">Haut &agrave manches longues</option>
-			<option value="hautsCourt">Haut &agrave manches courtes</option>
+			
+			<option value="shorts">Shorts</option>
+			
+			<option value="hautslong">Haut &agrave manches longues</option>
+			<option value="hautscourt">Haut &agrave manches courtes</option>
 			<option value="shorts">Shorts</option>
 			<option value="pantalons">Pantalons</option>
 			<option value="vestes">Vestes</option>
@@ -121,7 +89,7 @@
 		<input type="text" id="prix" name="prix" maxlength="8" size="8" required="required"> $<br><br>
 		               
                 <label for="quantite">Quantité : </label>
-                <input type="text" id="quantite" name="quantite" maxlength="4" size="8" min="1" value="1" required="required"><br><br>
+                <input type="text" id="quantite" name="quantite" value=30 maxlength="4" size="8" min="1" value="1" required="required"><br><br>
                 
 		<label for="image">Image : </label>
 		<input type="file" name="image" accept="image/gif, image/jpeg, image/png" required="required"><br><br><br>
