@@ -197,7 +197,7 @@ div.photo {
 	padding: 1em;
 	border-radius: 25px;
 }
-div.nomPrix {
+div.nomPrixFemme, div.nomPrixHomme {
 	background-color: #1c2f82;
 	border-radius: 15px;
 	font-family: Copperplate;
@@ -206,6 +206,12 @@ div.nomPrix {
 h2#nomSelection {
 	font-family: Copperplate Gothic Bold;
 	margin-left: 2em;
+}
+div.nomPrixFemme {
+	color: pink;
+}
+div.nomPrixHomme {
+	color: #42f4f1;
 }
 
 

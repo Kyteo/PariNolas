@@ -3,10 +3,10 @@
 function trouverSelection($selectionAVerifier) {
 	
 	switch($selectionAVerifier) {
-		case 'hautsCourt': 
+		case 'hautscourt': 
 			$selection = 'Hauts à manches courtes';
 			break;
-		case 'hautsLong':
+		case 'hautslong':
 			$selection = 'Hauts à manches longues';
 			break;
 		case 'pantalons':

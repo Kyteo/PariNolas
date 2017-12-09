@@ -8,8 +8,8 @@ echo '
 			<form action="afficherSelection.php" method="get">
 				<label id="femme"><h3>FEMMES</h3></label>
 				<select name="type">
-				<option name="type" value="FhautsCourt">Hauts manches courtes</option><br>
-				<option name="type" value="FhautsLong">Hauts manches longues</option><br>
+				<option name="type" value="Fhautscourt">Hauts manches courtes</option><br>
+				<option name="type" value="Fhautslong">Hauts manches longues</option><br>
 				<option name="type" value="Fpantalons">Pantalons</option><br>
 				<option name="type" value="Fshorts">Shorts</option><br>
 				<option name="type" value="Fvestes">Vestes</option><br>

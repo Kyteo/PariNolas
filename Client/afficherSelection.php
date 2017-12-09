@@ -83,7 +83,12 @@ function afficherSelection($selection, $sexe) {
 								</form>
 								'; 
                        ?></div><?php
-                       ?><div class="nomPrix"><?php
+                       if($sexe == 'F') {
+						   ?><div class="nomPrixFemme"><?php
+                       } else {
+						   ?><div class="nomPrixHomme"><?php
+                       }
+
                             echo "<p>".$row['Nom']."</p>";
                             echo "<p>".$row['Prix']."$</p>";
                        ?></div><?php

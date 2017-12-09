@@ -63,7 +63,7 @@
 	
         <form action="itemAjouter.php" method="post" enctype="multipart/form-data">        
 		<label for="nom">Nom d'item : </label>
-                <input type="text" id="nom" value=Short name="nom"  maxlength="25" size="27" required="required"><br><br>
+                <input type="text" id="nom" name="nom"  maxlength="25" size="27" required="required"><br><br>
 		<label for="id">ID : </label>
 		<input type="text" id="id" name="id" maxlength="4" size="8" required="required"><br><br>
 		<label for="sexe">Sexe : </label>
@@ -72,8 +72,6 @@
 		
 		<label for="type">Type : </label>
 		<select name="type" id="type">
-			
-			<option value="shorts">Shorts</option>
 			
 			<option value="hautslong">Haut &agrave manches longues</option>
 			<option value="hautscourt">Haut &agrave manches courtes</option>
@@ -89,7 +87,7 @@
 		<input type="text" id="prix" name="prix" maxlength="8" size="8" required="required"> $<br><br>
 		               
                 <label for="quantite">Quantité : </label>
-                <input type="text" id="quantite" name="quantite" value=30 maxlength="4" size="8" min="1" value="1" required="required"><br><br>
+                <input type="text" id="quantite" name="quantite" maxlength="4" size="8" min="1" value="1" required="required"><br><br>
                 
 		<label for="image">Image : </label>
 		<input type="file" name="image" accept="image/gif, image/jpeg, image/png" required="required"><br><br><br>
