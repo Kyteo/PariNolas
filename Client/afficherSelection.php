@@ -5,7 +5,7 @@ function afficherSelection($selection, $sexe) {
           
 	$hostname = 'localhost';
 	$username = 'root';
-	$password = 'root';
+	$password = '';
 	$databaseName = 'parinolas';
 
 	$connect = mysqli_connect($hostname, $username, $password, $databaseName);
@@ -56,7 +56,7 @@ function afficherSelection($selection, $sexe) {
                         
 		}
 		echo '<div id="touteSelection"><br>';
-		echo '<h2 id="nomSelection">Catégorie ';
+		echo '<h2 id="nomSelection">Catégorie: ';
 
 		$selection_complet = trouverSelection($selection);
 		echo $selection_complet;

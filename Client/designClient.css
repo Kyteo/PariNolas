@@ -228,6 +228,12 @@ div.item {
 	margin-left: 10em;
 	margin-top: 4em;	
 }
+
+a#rupture {
+    color: red;
+    
+}
+
 div.descr {
 	float: right;
     width: 300px;

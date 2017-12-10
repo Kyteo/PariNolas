@@ -21,8 +21,9 @@
 	        $dir = opendir($directory);
     
 	        while (($file = readdir($dir)) !== false) {
-	        $filename = $directory . $file;
-   
+	        $filename = $directory.$file;
+                echo 'test';    
+                echo $file;
 	        echo '<h3>'.$file.'</h3>';
     
 	        $type = filetype($filename);

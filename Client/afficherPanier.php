@@ -33,7 +33,7 @@ if(isset($_POST["delete"])){
         
     $hostname = 'localhost';
     $username = 'root';
-    $password = 'root';
+    $password = '';
     $databaseName = 'parinolas';
 
     $connect = mysqli_connect($hostname, $username, $password, $databaseName);

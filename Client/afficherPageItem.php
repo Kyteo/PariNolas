@@ -28,14 +28,11 @@
         
         $hostname = 'localhost';
         $username = 'root';
-        $password = 'root';
+        $password = '';
         $databaseName = 'parinolas';
 
         $connect = mysqli_connect($hostname, $username, $password, $databaseName);
         
-        $query = "show TABLES";
-        $result = mysqli_query($connect, $query); // Get table names
-            
        
         //Pour Quantite
         $query = "show TABLES";

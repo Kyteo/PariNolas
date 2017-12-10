@@ -6,7 +6,7 @@
 
         $dbHost     = 'localhost';
         $dbUsername = 'root';
-        $dbPassword = 'root';
+        $dbPassword = '';
         $dbName     = 'parinolas';
     
         $db = new mysqli($dbHost, $dbUsername, $dbPassword, $dbName);

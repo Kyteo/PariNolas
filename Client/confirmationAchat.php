@@ -24,7 +24,7 @@
         // Connexion a la base de donnees
         $hostname = 'localhost';
         $username = 'root';
-        $password = 'root';
+        $password =  '';
         $databaseName = 'parinolas';
 
         $connect = mysqli_connect($hostname, $username, $password, $databaseName);
