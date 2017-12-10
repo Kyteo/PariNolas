@@ -65,8 +65,9 @@
 	echo '<div class="descr">';
 	echo '<p class="nomItem">'.$nom.'</p>';
 	echo '<p class="prixItem">'.$prix.'$</p><br>';
+	
 	echo '<form class="elements" action="ajouterPanier.php" method="post">';
-	echo '<label>Couleurs &nbsp&nbsp&nbsp&nbsp</label>';
+	echo '<label>Couleur &nbsp&nbsp&nbsp&nbsp</label>';
 	// Changer code pour afficher juste les couleurs disponibles
 	echo '
 		<select name="couleur"> 
@@ -118,6 +119,7 @@
 	echo '<input type="hidden" value="'.$id.'" name="ID">';
 	echo '<input type="hidden" value="'.$nom.'" name="Nom">';
 	echo '<input type="hidden" value="'.$prix.'" name="Prix">';
+	echo '<input type="hidden" value="'.$img.'" name="ImgItem">';
 	
 	echo '&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 		<button type="submit">Ajouter

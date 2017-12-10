@@ -24,6 +24,7 @@
 	$coul = $_POST['couleur'];
 	$grandeur = $_POST['grandeur'];
 	$qte = $_POST['quantite'];
+	$imgItem = $_POST['ImgItem'];
 
 	if(!file_exists("panier.txt")) {
 		$fichier = fopen("panier.txt", "w");
@@ -42,6 +43,7 @@
 	$courant .= " ".$coul;
 	$courant .= " ".$grandeur;
 	$courant .= " ".$qte;
+	$courant .= " ".$imgItem;
 	file_put_contents($fichier, $courant);
 
 	echo "<br><h3>Item ajouté au panier!</h3>";

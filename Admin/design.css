@@ -62,3 +62,34 @@ label {
 	padding: inherit;
 	opacity: 0.95;
 }
+
+/* Visionnement commandes */
+div.voirCommandes, span.voirCommandes {
+	margin: 0em 25em;
+}
+table.voirCommandes {
+	border : 2px solid white;
+	width: 30em;
+}
+td {
+	padding: 1em;
+}
+td.blanc {
+	background-color: white;
+	color: black;
+}
+td.gris {
+	background-color: grey;
+	color: white;
+}
+div.voirCommandes h3 {
+	color: blue;
+	margin-top: 2em;
+}
+.articles th, .articles tr, .articles td {
+	border: 1px solid black;
+	width: 15em;
+}
+th {
+	color: gold;
+}

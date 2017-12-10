@@ -3,9 +3,7 @@
 if(isset($_POST["delete"])){
  
     $row = $_POST['row'];
-    
-    echo $row;
-   
+       
     $file_out = file("panier.txt");
     unset($file_out[$row]);
     file_put_contents("panier.txt", implode("", $file_out));
@@ -78,41 +76,24 @@ if(isset($_POST["delete"])){
 			$couleur = $tab_ligne_lue[5];
 			$grandeur = $tab_ligne_lue[6];
 			$quantite = $tab_ligne_lue[7];
-
-                //Trouver l'image
-                $query = "show TABLES";
-                $result = mysqli_query($connect, $query); // Get table names
-
-                while($row = mysqli_fetch_array($result)):    
-                   
-                    $query1 = "SELECT Image FROM $type WHERE ID LIKE '$id'"; 
-                    $result1 = mysqli_query($connect, $query1);
-              
-                 
-            endwhile;
-                
-                
-               while($row1 = mysqli_fetch_array($result1)):
-                   echo '<td><img  width="100px" src="../Admin/Images/'.$row1['Image'].'"></td>';
-               endwhile;
-		echo '<td>' . $couleur . '</td>';
-		echo '<td>' . $grandeur . '</td>';
-		echo '<td>' . $quantite . '</td>';
-		echo '<td>' . $prix . '$ </td>';
-		// Ajouter la fonction supprimer item
-                
-                
-                echo '<form action="afficherPanier.php" method="post" enctype="multipart/form-data">
-               
-                <input type="hidden" value="'.$row.'" name="row">
-                <td><button name="delete" type="submit"><img src="images/delete.jpg" height="40px" weight="40px"/></button></td>
-                </form>
-                
+			$imgItem = $tab_ligne_lue[8];
+			
+			echo '<td><img  width="100px" src="../Admin/Images/'.$imgItem.'"></td>';
+			echo '<td>' . $couleur . '</td>';
+			echo '<td>' . $grandeur . '</td>';
+			echo '<td>' . $quantite . '</td>';
+			echo '<td>' . $prix . '$ </td>';
+			
+			// Bouton supprimer item
+			echo '
+				<form action="afficherPanier.php" method="post" enctype="multipart/form-data">
+				<input type="hidden" value="'.$row.'" name="row">
+				<td><button name="delete" type="submit"><img src="images/delete.jpg" height="40px" weight="40px"/></button></td>
+				</form>
+				
 				</tr>
-			</table>
-		
-		
-		</div>';		
+				</table>
+				</div>';		
                 
                 $row = $row + 1;
 		 }

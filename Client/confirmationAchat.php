@@ -13,7 +13,7 @@
 <?php
         //Inclusion de d'autres pages
 	include 'entete.php'; 
-        include 'trouverAttributsItem.php';
+	include 'trouverAttributsItem.php';
         
         //Titre de la page
         echo '
@@ -147,7 +147,6 @@
         $courant .= $methode;
         $courant .= "\n";
         $courant .= "XXXX-XXXX-XXXX-XXXX";
-        $courant .= "\n";
         
         $fichier = fopen("panier.txt", "r");
         $row = 1;
@@ -159,7 +158,7 @@
         if ($tab_ligne_lue[0] != ""){
             
         
-	$courant .= $tab_ligne_lue[0];
+	$courant .= "\n".$tab_ligne_lue[0];
 	$courant .= " ".$tab_ligne_lue[1];
 	$courant .= " ".$tab_ligne_lue[2];
 	$courant .= " ".$tab_ligne_lue[3];
