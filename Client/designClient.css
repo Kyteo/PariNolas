@@ -294,6 +294,11 @@ th.delete {
 
 /* Panier */
 
+h3#ajoutPanier {
+    text-align: center;
+    
+}
+
 h1.panier {
 	font-family: Copperplate Gothic Bold;
 	margin-left: 20%;

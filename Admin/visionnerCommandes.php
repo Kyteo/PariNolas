@@ -9,22 +9,24 @@
 </head>
 
 <body>
-	<pre>
-		Bonjour, Administrateur! | <a href="adminDeconnecte.html">Se déconnecter</a>
-	</pre><hr>
-	<span class="voirCommandes"><img src="pn-logo-petit.png" alt="PariNolas logo"><br></span><hr>
+	<hr><span class="voirCommandes"><img src="pn-logo-petit.png" alt="PariNolas logo"><br></span><hr>
 	
 	<div class="voirCommandes">
-		<h2>Commandes récentes</h2><br>
+		<h2>Commandes récentes</h2>
 	        <?php
 	        $directory = "../Client/commandes/";
 	        $dir = opendir($directory);
     
+                
+                
 	        while (($file = readdir($dir)) !== false) {
 	        $filename = $directory.$file;
-                echo 'test';    
-                echo $file;
-	        echo '<h3>'.$file.'</h3>';
+                
+                
+                if ($file != '.' && $file != '..'){
+                    echo '<h3>'.$file.'</h3>';
+                }
+	        
     
 	        $type = filetype($filename);
 	        if ($type == 'file') {
@@ -126,5 +128,7 @@
 	closedir($dir);
         ?>
 	</div>
+        </br>
+        <a  href="adminAccueil.html"><button>Retour accueil</button></a>
 </body>
 </html>

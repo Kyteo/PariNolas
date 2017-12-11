@@ -46,7 +46,7 @@
 	$courant .= " ".$imgItem;
 	file_put_contents($fichier, $courant);
 
-	echo "<br><h3>Item ajouté au panier!</h3>";
+	echo "<br><h3 id='ajoutPanier'>Item ajouté au panier!</h3>";
         header("refresh:5; url= accueilClient.php");
 	?>
 		
