@@ -24,9 +24,8 @@
         <div id="confirmCommande">
 		<h1 class="confirmation">Confirmation de la commande</h1>
 		';
-        
-    
-        
+		
+	// On remet les informations dans POST
 	session_start();
 	$_POST = $_SESSION;
 

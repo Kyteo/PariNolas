@@ -42,34 +42,34 @@
 			</div>
 		</div>
 	
-			<!-- Formulaire pour demande de retour d'item -->
-			<div class="retour">
-				<h2>Retourner un item</h2>
-				<p>Pour retourner un item, veuillez d'abord nous envoyer un message décrivant les circonstances du retour ainsi qu'une image
-					accompagnant votre explication.<br> Nous vous contacterons ensuite pour faire le suivi.</p><br>
+		<!-- Formulaire pour demande de retour d'item -->
+		<div class="retour">
+			<h2>Retourner un item</h2>
+			<p>Pour retourner un item, veuillez d'abord nous envoyer un message décrivant les circonstances du retour ainsi qu'une image
+				accompagnant votre explication.<br> Nous vous contacterons ensuite pour faire le suivi.</p><br>
+	
+			<form id="retour" action="contact.php" method="post">
+				<label for="nom">Votre nom </label><br>
+				<?php echo "<input type='text' value='{$nom}' id='nom' name='nom' size='40'><br><br>"; ?>
 		
-				<form id="retour" action="contact.php" method="post">
-					<label for="nom">Votre nom </label><br>
-					<?php echo "<input type='text' value='{$nom}' id='nom' name='nom' size='40'><br><br>"; ?>
+				<label for="courriel">Adresse électronique </label><br>
+				<?php echo "<input type='text' value='{$courriel}' id='courriel' name='courriel' size='50'><br><br>"; ?>
+		
+				<?php echo "<textarea value='{$explication}' id='explication' name='explication' cols='68' rows='10' placeholder='Explication du retour'></textarea><br><br>"; ?>
 			
-					<label for="courriel">Adresse électronique </label><br>
-					<?php echo "<input type='text' value='{$courriel}' id='courriel' name='courriel' size='50'><br><br>"; ?>
 			
-					<?php echo "<textarea value='{$explication}' id='explication' name='explication' cols='68' rows='10' placeholder='Explication du retour'></textarea><br><br>"; ?>
+				<input type="file" name="image" accept="image/gif, image/jpeg, image/png"><br><br><br>
+		
+				<?php 
+					if ($msgErreur != "") {
+				    	echo "<p>{$msgErreur}</p>";
+					}
+				?>
 				
-				
-					<input type="file" name="image" accept="image/gif, image/jpeg, image/png"><br><br><br>
-			
-					<?php 
-						if ($msgErreur != "") {
-					    	echo "<p>{$msgErreur}</p>";
-						}
-					?>
-					
-					<input type="submit" id="envoyerRetour" name="envoyerRetour" value="Envoyer">
-				</form>
-			</div>
+				<input type="submit" id="envoyerRetour" name="envoyerRetour" value="Envoyer">
+			</form>
 		</div>
+	</div>
 	
 	<?php include 'basDePage.php'; ?>
 	

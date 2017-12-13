@@ -25,6 +25,7 @@
     $explication = $_POST["explication"];
 	$image = $_POST["image"];
 
+	// On ajoute la demande de retour dans notre liste (fichier retours.txt)
 	if(!file_exists("retours.txt")) {
 		$fichier = fopen("retours.txt", "w");
 	}

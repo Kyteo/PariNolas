@@ -41,8 +41,8 @@ ul {
 	font-weight: bold;
 	color: Black;
 	text-transform: uppercase;
-	min-width: 450px;
-	max-width: 500px;
+	min-width: 500px;
+	max-width: 600px;
 	padding: 5px;
 	margin: 10px auto 10px auto;
 }

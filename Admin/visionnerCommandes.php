@@ -23,13 +23,13 @@
 	        $filename = $directory.$file;
                 
                 
-                if ($file != '.' && $file != '..'){
+                if ($file != '.' && $file != '..' && $file != '.DS_Store'){
                     echo '<h3>'.$file.'</h3>';
                 }
 	        
     
 	        $type = filetype($filename);
-	        if ($type == 'file') {
+	        if ($type == 'file' && $file != '.DS_Store') {
         
         
 	            $fichier = fopen($filename, "r");

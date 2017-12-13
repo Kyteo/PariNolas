@@ -24,7 +24,7 @@
         // Connexion a la base de donnees
         $hostname = 'localhost';
         $username = 'root';
-        $password =  '';
+        $password =  'root';
         $databaseName = 'parinolas';
 
         $connect = mysqli_connect($hostname, $username, $password, $databaseName);
@@ -47,7 +47,7 @@
         
         //Affichage du nom, adresse et paiement
         echo '<div id="adresseExpedition">';
-	echo '<h2 class="titreConfirmation">Adresse d&apos;expédition</h2>';
+		echo '<h2 class="titreConfirmation">Adresse d&apos;expédition</h2>';
         echo $nomClient.', '.$prenomClient.'</br>';
         echo $telephone.'</br>';
         echo $emailClient.'</br>';
@@ -69,7 +69,7 @@
             $result = mysqli_query($connect, $query); // Get table names
         
             $ligne = fgets($fichier);
-	    $tab_ligne_lue = explode(" ", $ligne);
+			$tab_ligne_lue = explode(" ", $ligne);
             
             if ($tab_ligne_lue[0] != ""){
                            
@@ -131,16 +131,16 @@
         $courant = file_get_contents($fichier2);
 	
         $courant .= $nomClient;
-	$courant .= " ".$prenomClient;
+		$courant .= " ".$prenomClient;
         $courant .= "\n";
         $courant .= $telephone;
         $courant .= "\n";
         $courant .= $emailClient;
         $courant .= "\n";
-	$courant .= $adresseClient;
+		$courant .= $adresseClient;
         $courant .= "\n";
-	$courant .= $codePostal;
-	$courant .= " ".$province;
+		$courant .= $codePostal;
+		$courant .= " ".$province;
         $courant .= " Canada";
         $courant .= "\n";
  
@@ -150,31 +150,26 @@
         
         $fichier = fopen("panier.txt", "r");
         $row = 1;
+		
         while(!feof($fichier)) {
-        
-            
+          
         $ligne = fgets($fichier);
-	$tab_ligne_lue = explode(" ", $ligne);
-        if ($tab_ligne_lue[0] != ""){
-            
-        
-	$courant .= "\n".$tab_ligne_lue[0];
-	$courant .= " ".$tab_ligne_lue[1];
-	$courant .= " ".$tab_ligne_lue[2];
-	$courant .= " ".$tab_ligne_lue[3];
-	$courant .= " ".$tab_ligne_lue[4];
-	$courant .= " ".$tab_ligne_lue[5];
-	$courant .= " ".$tab_ligne_lue[6];
-	$courant .= " ".$tab_ligne_lue[7];
-        
-        
-	file_put_contents($fichier2, $courant);
-        
-        
-        
-        $row = $row + 1;
-            }
-         }
+		$tab_ligne_lue = explode(" ", $ligne);
+		
+	        if ($tab_ligne_lue[0] != "") {
+				$courant .= "\n".$tab_ligne_lue[0];
+				$courant .= " ".$tab_ligne_lue[1];
+				$courant .= " ".$tab_ligne_lue[2];
+				$courant .= " ".$tab_ligne_lue[3];
+				$courant .= " ".$tab_ligne_lue[4];
+				$courant .= " ".$tab_ligne_lue[5];
+				$courant .= " ".$tab_ligne_lue[6];
+				$courant .= " ".$tab_ligne_lue[7];
+			
+				file_put_contents($fichier2, $courant);
+				$row = $row + 1;
+			}
+		}
         
         while ($row != -1) {
             
@@ -185,8 +180,8 @@
         }
          
         $to = "nicolasbreant@hotmail.com";
-        $subject = "Parinolas - Recu commande";
-        $txt = "Recu...";
+        $subject = "Parinolas - Reçu commande";
+        $txt = "Reçu...";
         $headers = "From: nicolasbreant@hotmail.com";
 
 

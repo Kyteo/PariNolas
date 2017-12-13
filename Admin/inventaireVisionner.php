@@ -2,7 +2,7 @@
         
 $hostname = 'localhost';
 $username = 'root';
-$password = '';
+$password = 'root';
 $databaseName = 'parinolas';
 
 $connect = mysqli_connect($hostname, $username, $password, $databaseName);
@@ -49,7 +49,7 @@ and open the template in the editor.
                     <td>Sexe</td>
                     <td>Prix</td>  
                     <td>Image</td>  
-                    <td>Stock</td> 
+                    <td>Quantité</td> 
                 </tr>
         
                 <?php while($row1 = mysqli_fetch_array($result1)): 

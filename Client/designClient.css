@@ -327,7 +327,7 @@ img#delete {
 form#commander {
 	text-align: center;
 }
-button#caisse, button#suivant, input#infolettre, input#montrer, input#envoyerRetour, button#placerCommande {
+button#caisse, button#suivant, input#suivant, input#infolettre, input#montrer, input#envoyerRetour, button#placerCommande {
 	background-color: darkblue;
 	color: white;
 	padding: 10px 24px;

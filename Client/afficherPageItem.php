@@ -28,7 +28,7 @@
         
         $hostname = 'localhost';
         $username = 'root';
-        $password = '';
+        $password = 'root';
         $databaseName = 'parinolas';
 
         $connect = mysqli_connect($hostname, $username, $password, $databaseName);
@@ -36,12 +36,7 @@
        
         //Pour Quantite
         $query = "show TABLES";
-        $result = mysqli_query($connect, $query);     
-		
-		echo $type;
-		echo $id;
-		echo $nom;
-		echo $sexe;       
+        $result = mysqli_query($connect, $query);          
                     
         while($row = mysqli_fetch_array($result)):    
             $query1 = "SELECT Quantite FROM $type WHERE ID LIKE '$id' AND NOM LIKE '$nom' AND SEXE LIKE '$sexe'"; 
@@ -68,41 +63,41 @@
 	// Changer code pour afficher juste les couleurs disponibles
 	echo '
 		<select name="couleur"> 
-                     <option value="Noir">Noir</option>
+			<option value="Noir">Noir</option>
 			<option value="Rouge">Rouge</option>
 			<option value="Bleu">Bleu</option>
 			<option value="Jaune">Jaune</option>
 			<option value="Blanc">Blanc</option>
 			<option value="Rose">Rose</option>
 			<option value="Autres">Autres</option>
-                </select><br><br>
+		</select><br><br>
 		';
 	echo '<label>Grandeur &nbsp&nbsp</label>';
 	echo '
 		<select name="grandeur">
-                       <option value="Petit">Petit</option>
+			<option value="Petit">Petit</option>
 			<option value="Medium">Medium</option>
 			<option value="Large">Large</option>
-                </select><br><br>';
+		</select><br><br>
+		';
 	
 	echo '<label>Quantité &nbsp&nbsp&nbsp&nbsp</label>';
-	echo '
-		<select name="quantite">';
+	echo '<select name="quantite">';
         
     //Affiche la quantite restante
     if ($laQuantite >= 0 && $laQuantite <= 5)  {
-            for ($i = 1; $i <= $laQuantite; $i++){
-                echo "<option value='$i'>$i</option>";
-            }
+        for ($i = 1; $i <= $laQuantite; $i++){
+            echo "<option value='$i'>$i</option>";
+        }
     } else {
         
-    //Affiche une quantite maximum de 5
+    	//Affiche une quantite maximum de 5
         for ($i = 1; $i <= 5; $i++){
             echo "<option value='$i'>$i</option>";
         }
     }
                        
-	echo	'</select>';
+	echo '</select>';
          
         //Affiche que l'item est en rupture de stock
         if ($laQuantite <= 0)  {
@@ -124,8 +119,7 @@
 		</button>';
 	echo '</form></div>';
 	
-	
-	
+
 	?>
 
 	

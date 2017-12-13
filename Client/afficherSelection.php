@@ -5,7 +5,7 @@ function afficherSelection($selection, $sexe) {
           
 	$hostname = 'localhost';
 	$username = 'root';
-	$password = '';
+	$password = 'root';
 	$databaseName = 'parinolas';
 
 	$connect = mysqli_connect($hostname, $username, $password, $databaseName);
@@ -65,36 +65,36 @@ function afficherSelection($selection, $sexe) {
 		
 		$result2 = afficherSelection($selection, $sexe);
 	
-		
-                while($row = mysqli_fetch_array($result2)):
-                  
-                  ?><div class="main"><?php
-                       ?><div class="photo"><?php
-                            echo '
-								<form action="afficherPageItem.php" method="get" enctype="multipart/form-data">
-									<input type="hidden" value="' .$selection.'" name="Selection">
-									<input type="hidden" value="'.$row['ID'].'" name="ID">
-									<input type="hidden" value="'.$row['Nom'].'" name="Nom">
-									<input type="hidden" value="'.$row['Sexe'].'" name="Sexe">
-									<input type="hidden" value="'.$row['Prix'].'" name="Prix">
-									<input type="hidden" value="'.$row['Image'].'" name="Image">
-						
-	                            	<input type="image" src="../Admin/Images/'.$row['Image'].'" name="Image" width="175" height="175" alt=" '.$row['Nom']. '">
-								</form>
-								'; 
-                       ?></div><?php
-                       if($sexe == 'F') {
-						   ?><div class="nomPrixFemme"><?php
-                       } else {
-						   ?><div class="nomPrixHomme"><?php
-                       }
+			// On affiche tous les items de la sélection choisie
+            while($row = mysqli_fetch_array($result2)):
+              
+              ?><div class="main"><?php
+                   ?><div class="photo"><?php
+                        echo '
+							<form action="afficherPageItem.php" method="get" enctype="multipart/form-data">
+								<input type="hidden" value="' .$selection.'" name="Selection">
+								<input type="hidden" value="'.$row['ID'].'" name="ID">
+								<input type="hidden" value="'.$row['Nom'].'" name="Nom">
+								<input type="hidden" value="'.$row['Sexe'].'" name="Sexe">
+								<input type="hidden" value="'.$row['Prix'].'" name="Prix">
+								<input type="hidden" value="'.$row['Image'].'" name="Image">
+					
+                            	<input type="image" src="../Admin/Images/'.$row['Image'].'" name="Image" width="175" height="175" alt=" '.$row['Nom']. '">
+							</form>
+							'; 
+                   ?></div><?php
+                   if($sexe == 'F') {
+					   ?><div class="nomPrixFemme"><?php
+                   } else {
+					   ?><div class="nomPrixHomme"><?php
+                   }
 
-                            echo "<p>".$row['Nom']."</p>";
-                            echo "<p>".$row['Prix']."$</p>";
-                       ?></div><?php
-                  ?></div><?php
-                  
-                endwhile;
+                        echo "<p>".$row['Nom']."</p>";
+                        echo "<p>".$row['Prix']."$</p>";
+                   ?></div><?php
+              ?></div><?php
+              
+            endwhile;
 		echo '<div>';
 				
 	?>

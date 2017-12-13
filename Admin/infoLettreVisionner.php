@@ -2,7 +2,7 @@
 
 <html>
 <head>
-	<title>Version administrateur: visionnement info lettres</title>
+	<title>Version administrateur: visionnement infolettre</title>
 	<meta charset="UTF-8">
 	<link href="design.css" type="text/css" rel="stylesheet" />
 	

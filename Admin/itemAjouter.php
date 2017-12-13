@@ -6,7 +6,7 @@
 
         $dbHost     = 'localhost';
         $dbUsername = 'root';
-        $dbPassword = '';
+        $dbPassword = 'root';
         $dbName     = 'parinolas';
     
         $db = new mysqli($dbHost, $dbUsername, $dbPassword, $dbName);
@@ -31,9 +31,9 @@
 
        
 		if(mysqli_query($db, $sql)){
-			echo 'Non Ajouter';
+			echo 'Erreur! Item non ajouté';
 		}else{
-			echo 'Ajouter';     
+			echo 'Item ajouté';     
 		}
          
 	     if (move_uploaded_file($_FILES["image"]["tmp_name"], $target)){
@@ -73,8 +73,8 @@
 		<label for="type">Type : </label>
 		<select name="type" id="type">
 			
-			<option value="hautslong">Haut &agrave manches longues</option>
-			<option value="hautscourt">Haut &agrave manches courtes</option>
+			<option value="hautslong">Haut à manches longues</option>
+			<option value="hautscourt">Haut à manches courtes</option>
 			<option value="shorts">Shorts</option>
 			<option value="pantalons">Pantalons</option>
 			<option value="vestes">Vestes</option>
